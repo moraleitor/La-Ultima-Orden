@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/cocina/ingrediente.gd" id="sc_1"]
+
+[sub_resource type="StandardMaterial3D" id="Standa_2"]
+albedo_color = Color(0.9, 0.45, 0.1, 1)
+
+[sub_resource type="CylinderMesh" id="Cylind_3"]
+material = SubResource("Standa_2")
+top_radius = 0.022
+bottom_radius = 0.022
+height = 0.12
+
+[node name="Zanahoria" type="Node3D"]
+script = ExtResource("sc_1")
+nombre = "zanahoria"
+
+[node name="Modelo" type="MeshInstance3D" parent="."]
+mesh = SubResource("Cylind_3")

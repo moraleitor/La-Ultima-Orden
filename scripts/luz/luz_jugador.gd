@@ -7,6 +7,7 @@ extends SpotLight3D
 @export var altura := 0.9           # m sobre los pies del cocinero
 @export var minimo_en_rango := 0.1  # lo que debe llegar justo al borde del rango
 @export var exponente := 2.0        # atenuación tipo 1/d^2
+@export var imprimir_pruebas := true # las luces de los clientes lo apagan
 
 var _tween: Tween
 
@@ -16,6 +17,8 @@ func _ready() -> void:
 	spot_range = rango
 	spot_attenuation = exponente
 	light_energy = energia_para(rango, minimo_en_rango, exponente)
+	if not imprimir_pruebas:
+		return
 	# Nivel 1: función pura (debe dar 1, 0.25, 0.0625)
 	print("atenuacion 1, 2, 4 m: ", atenuacion(1.0), " ", atenuacion(2.0), " ", atenuacion(4.0))
 	# Nivel 3: Blinn-Phong (debe dar 1.0 y 0.0794)

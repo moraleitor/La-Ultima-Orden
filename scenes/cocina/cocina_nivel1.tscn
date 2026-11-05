@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3]
+[gd_scene load_steps=108 format=3]
 
 [ext_resource type="Script" path="res://scripts/cocina/fuente_ingredientes.gd" id="sc_21"]
 [ext_resource type="PackedScene" path="res://scenes/ingredientes/papa.tscn" id="ps_22"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://scripts/cocina/plato.gd" id="sc_52"]
 [ext_resource type="Script" path="res://scripts/cocina/drag_controller.gd" id="sc_56"]
 [ext_resource type="Script" path="res://scripts/cocina/selector_papel.gd" id="sc_57"]
+[ext_resource type="Script" path="res://scripts/visual/cliente_view.gd" id="sc_58"]
+[ext_resource type="Script" path="res://scripts/visual/papel_view.gd" id="sc_66"]
 
 [sub_resource type="StandardMaterial3D" id="Standa_1"]
 albedo_color = Color(0.78, 0.72, 0.58, 1)
@@ -191,6 +193,178 @@ height = 0.015
 [sub_resource type="BoxShape3D" id="BoxSha_55"]
 size = Vector3(0.16, 0.08, 0.16)
 
+[sub_resource type="StandardMaterial3D" id="Standa_59"]
+albedo_color = Color(0.25, 0.35, 0.5, 1)
+
+[sub_resource type="CapsuleMesh" id="Capsul_60"]
+material = SubResource("Standa_59")
+radius = 0.07
+height = 0.26
+
+[sub_resource type="StandardMaterial3D" id="Standa_61"]
+albedo_color = Color(0.85, 0.7, 0.58, 1)
+
+[sub_resource type="SphereMesh" id="Sphere_62"]
+material = SubResource("Standa_61")
+radius = 0.052
+height = 0.104
+
+[sub_resource type="StandardMaterial3D" id="Standa_63"]
+albedo_color = Color(0.1, 0.08, 0.06, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_64"]
+material = SubResource("Standa_63")
+size = Vector3(0.07, 0.012, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxSha_65"]
+size = Vector3(0.16, 0.34, 0.14)
+
+[sub_resource type="StandardMaterial3D" id="Standa_67"]
+albedo_color = Color(0.95, 0.93, 0.85, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_68"]
+material = SubResource("Standa_67")
+size = Vector3(0.11, 0.15, 0.008)
+
+[sub_resource type="StandardMaterial3D" id="Standa_69"]
+albedo_color = Color(0.7, 0.21, 0.18, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_70"]
+material = SubResource("Standa_69")
+size = Vector3(0.11, 0.15, 0.004)
+
+[sub_resource type="BoxShape3D" id="BoxSha_71"]
+size = Vector3(0.12, 0.16, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="Standa_72"]
+albedo_color = Color(0.55, 0.25, 0.22, 1)
+
+[sub_resource type="CapsuleMesh" id="Capsul_73"]
+material = SubResource("Standa_72")
+radius = 0.07
+height = 0.26
+
+[sub_resource type="StandardMaterial3D" id="Standa_74"]
+albedo_color = Color(0.85, 0.7, 0.58, 1)
+
+[sub_resource type="SphereMesh" id="Sphere_75"]
+material = SubResource("Standa_74")
+radius = 0.052
+height = 0.104
+
+[sub_resource type="StandardMaterial3D" id="Standa_76"]
+albedo_color = Color(0.1, 0.08, 0.06, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_77"]
+material = SubResource("Standa_76")
+size = Vector3(0.07, 0.012, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxSha_78"]
+size = Vector3(0.16, 0.34, 0.14)
+
+[sub_resource type="StandardMaterial3D" id="Standa_79"]
+albedo_color = Color(0.95, 0.93, 0.85, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_80"]
+material = SubResource("Standa_79")
+size = Vector3(0.11, 0.15, 0.008)
+
+[sub_resource type="StandardMaterial3D" id="Standa_81"]
+albedo_color = Color(0.7, 0.21, 0.18, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_82"]
+material = SubResource("Standa_81")
+size = Vector3(0.11, 0.15, 0.004)
+
+[sub_resource type="BoxShape3D" id="BoxSha_83"]
+size = Vector3(0.12, 0.16, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="Standa_84"]
+albedo_color = Color(0.3, 0.45, 0.3, 1)
+
+[sub_resource type="CapsuleMesh" id="Capsul_85"]
+material = SubResource("Standa_84")
+radius = 0.07
+height = 0.26
+
+[sub_resource type="StandardMaterial3D" id="Standa_86"]
+albedo_color = Color(0.85, 0.7, 0.58, 1)
+
+[sub_resource type="SphereMesh" id="Sphere_87"]
+material = SubResource("Standa_86")
+radius = 0.052
+height = 0.104
+
+[sub_resource type="StandardMaterial3D" id="Standa_88"]
+albedo_color = Color(0.1, 0.08, 0.06, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_89"]
+material = SubResource("Standa_88")
+size = Vector3(0.07, 0.012, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxSha_90"]
+size = Vector3(0.16, 0.34, 0.14)
+
+[sub_resource type="StandardMaterial3D" id="Standa_91"]
+albedo_color = Color(0.95, 0.93, 0.85, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_92"]
+material = SubResource("Standa_91")
+size = Vector3(0.11, 0.15, 0.008)
+
+[sub_resource type="StandardMaterial3D" id="Standa_93"]
+albedo_color = Color(0.7, 0.21, 0.18, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_94"]
+material = SubResource("Standa_93")
+size = Vector3(0.11, 0.15, 0.004)
+
+[sub_resource type="BoxShape3D" id="BoxSha_95"]
+size = Vector3(0.12, 0.16, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="Standa_96"]
+albedo_color = Color(0.45, 0.45, 0.48, 1)
+
+[sub_resource type="CapsuleMesh" id="Capsul_97"]
+material = SubResource("Standa_96")
+radius = 0.07
+height = 0.26
+
+[sub_resource type="StandardMaterial3D" id="Standa_98"]
+albedo_color = Color(0.85, 0.7, 0.58, 1)
+
+[sub_resource type="SphereMesh" id="Sphere_99"]
+material = SubResource("Standa_98")
+radius = 0.052
+height = 0.104
+
+[sub_resource type="StandardMaterial3D" id="Standa_100"]
+albedo_color = Color(0.1, 0.08, 0.06, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_101"]
+material = SubResource("Standa_100")
+size = Vector3(0.07, 0.012, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxSha_102"]
+size = Vector3(0.16, 0.34, 0.14)
+
+[sub_resource type="StandardMaterial3D" id="Standa_103"]
+albedo_color = Color(0.95, 0.93, 0.85, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_104"]
+material = SubResource("Standa_103")
+size = Vector3(0.11, 0.15, 0.008)
+
+[sub_resource type="StandardMaterial3D" id="Standa_105"]
+albedo_color = Color(0.7, 0.21, 0.18, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_106"]
+material = SubResource("Standa_105")
+size = Vector3(0.11, 0.15, 0.004)
+
+[sub_resource type="BoxShape3D" id="BoxSha_107"]
+size = Vector3(0.12, 0.16, 0.04)
+
 [node name="Cocina" type="Node3D"]
 
 [node name="Pared" type="MeshInstance3D" parent="."]
@@ -348,3 +522,159 @@ script = ExtResource("sc_56")
 
 [node name="SelectorPapel" type="Node" parent="."]
 script = ExtResource("sc_57")
+
+[node name="Cliente1" type="Node3D" parent="." groups=["cliente"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.6, -0.5)
+script = ExtResource("sc_58")
+posicion = 0
+
+[node name="Cuerpo" type="MeshInstance3D" parent="Cliente1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+mesh = SubResource("Capsul_60")
+
+[node name="Cabeza" type="MeshInstance3D" parent="Cliente1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17, 0.02)
+mesh = SubResource("Sphere_62")
+
+[node name="Ceja" type="MeshInstance3D" parent="Cliente1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.185, 0.07)
+mesh = SubResource("BoxMes_64")
+
+[node name="Colision" type="StaticBody3D" parent="Cliente1"]
+
+[node name="Forma" type="CollisionShape3D" parent="Cliente1/Colision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+shape = SubResource("BoxSha_65")
+
+[node name="Papel1" type="Node3D" parent="." groups=["papel"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.38, -0.2)
+script = ExtResource("sc_66")
+
+[node name="Hoja" type="MeshInstance3D" parent="Papel1"]
+mesh = SubResource("BoxMes_68")
+
+[node name="Borde" type="MeshInstance3D" parent="Papel1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.004)
+mesh = SubResource("BoxMes_70")
+
+[node name="Colision" type="StaticBody3D" parent="Papel1"]
+
+[node name="Forma" type="CollisionShape3D" parent="Papel1/Colision"]
+shape = SubResource("BoxSha_71")
+
+[node name="Cliente2" type="Node3D" parent="." groups=["cliente"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.6, -0.5)
+script = ExtResource("sc_58")
+posicion = 1
+
+[node name="Cuerpo" type="MeshInstance3D" parent="Cliente2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+mesh = SubResource("Capsul_73")
+
+[node name="Cabeza" type="MeshInstance3D" parent="Cliente2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17, 0.02)
+mesh = SubResource("Sphere_75")
+
+[node name="Ceja" type="MeshInstance3D" parent="Cliente2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.185, 0.07)
+mesh = SubResource("BoxMes_77")
+
+[node name="Colision" type="StaticBody3D" parent="Cliente2"]
+
+[node name="Forma" type="CollisionShape3D" parent="Cliente2/Colision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+shape = SubResource("BoxSha_78")
+
+[node name="Papel2" type="Node3D" parent="." groups=["papel"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.38, -0.2)
+script = ExtResource("sc_66")
+
+[node name="Hoja" type="MeshInstance3D" parent="Papel2"]
+mesh = SubResource("BoxMes_80")
+
+[node name="Borde" type="MeshInstance3D" parent="Papel2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.004)
+mesh = SubResource("BoxMes_82")
+
+[node name="Colision" type="StaticBody3D" parent="Papel2"]
+
+[node name="Forma" type="CollisionShape3D" parent="Papel2/Colision"]
+shape = SubResource("BoxSha_83")
+
+[node name="Cliente3" type="Node3D" parent="." groups=["cliente"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.6, -0.5)
+script = ExtResource("sc_58")
+posicion = 2
+
+[node name="Cuerpo" type="MeshInstance3D" parent="Cliente3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+mesh = SubResource("Capsul_85")
+
+[node name="Cabeza" type="MeshInstance3D" parent="Cliente3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17, 0.02)
+mesh = SubResource("Sphere_87")
+
+[node name="Ceja" type="MeshInstance3D" parent="Cliente3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.185, 0.07)
+mesh = SubResource("BoxMes_89")
+
+[node name="Colision" type="StaticBody3D" parent="Cliente3"]
+
+[node name="Forma" type="CollisionShape3D" parent="Cliente3/Colision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+shape = SubResource("BoxSha_90")
+
+[node name="Papel3" type="Node3D" parent="." groups=["papel"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.38, -0.2)
+script = ExtResource("sc_66")
+
+[node name="Hoja" type="MeshInstance3D" parent="Papel3"]
+mesh = SubResource("BoxMes_92")
+
+[node name="Borde" type="MeshInstance3D" parent="Papel3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.004)
+mesh = SubResource("BoxMes_94")
+
+[node name="Colision" type="StaticBody3D" parent="Papel3"]
+
+[node name="Forma" type="CollisionShape3D" parent="Papel3/Colision"]
+shape = SubResource("BoxSha_95")
+
+[node name="Cliente4" type="Node3D" parent="." groups=["cliente"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.6, -0.5)
+script = ExtResource("sc_58")
+posicion = 3
+
+[node name="Cuerpo" type="MeshInstance3D" parent="Cliente4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+mesh = SubResource("Capsul_97")
+
+[node name="Cabeza" type="MeshInstance3D" parent="Cliente4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17, 0.02)
+mesh = SubResource("Sphere_99")
+
+[node name="Ceja" type="MeshInstance3D" parent="Cliente4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.185, 0.07)
+mesh = SubResource("BoxMes_101")
+
+[node name="Colision" type="StaticBody3D" parent="Cliente4"]
+
+[node name="Forma" type="CollisionShape3D" parent="Cliente4/Colision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+shape = SubResource("BoxSha_102")
+
+[node name="Papel4" type="Node3D" parent="." groups=["papel"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.38, -0.2)
+script = ExtResource("sc_66")
+
+[node name="Hoja" type="MeshInstance3D" parent="Papel4"]
+mesh = SubResource("BoxMes_104")
+
+[node name="Borde" type="MeshInstance3D" parent="Papel4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.004)
+mesh = SubResource("BoxMes_106")
+
+[node name="Colision" type="StaticBody3D" parent="Papel4"]
+
+[node name="Forma" type="CollisionShape3D" parent="Papel4/Colision"]
+shape = SubResource("BoxSha_107")

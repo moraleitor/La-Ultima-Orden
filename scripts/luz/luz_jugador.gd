@@ -9,6 +9,11 @@ extends SpotLight3D
 @export var minimo_en_rango := 0.1  # lo que debe llegar justo al borde del rango
 @export var exponente := 2.0        # atenuación tipo 1/d^2
 @export var imprimir_pruebas := true # las luces de los clientes lo apagan
+## -1 = luz del jugador (siempre prendida). 0 a 3 = luz de un cliente: se prende
+## cuando llega el cliente de esa posición y se apaga cuando se va.
+@export var posicion_cliente := -1
+@export var encendida_al_inicio := false   # solo para probar la zona sin partida
+var _indice_cliente := -1
 
 var _tween: Tween
 
@@ -18,6 +23,8 @@ func _ready() -> void:
 	spot_range = rango
 	spot_attenuation = exponente
 	light_energy = energia_para(rango, minimo_en_rango, exponente)
+	if posicion_cliente >= 0:
+		_conectar_cliente()
 	if not imprimir_pruebas:
 		return
 	# Nivel 1: función pura (debe dar 1, 0.25, 0.0625)
@@ -27,6 +34,44 @@ func _ready() -> void:
 	var l := Vector3(0, 1, 1)
 	print("blinn_phong v=(0,1,-1): ", blinn_phong(n, l, Vector3(0, 1, -1), 32.0))
 	print("blinn_phong v=(0,1,0): ", blinn_phong(n, l, Vector3(0, 1, 0), 32.0))
+
+
+func _conectar_cliente() -> void:
+	visible = encendida_al_inicio
+	Events.cliente_llego.connect(_on_cliente_llego)
+	Events.reaccion_terminada.connect(_on_reaccion_terminada)
+	Events.intento_iniciado.connect(_apagar)
+
+
+func _on_cliente_llego(indice: int, _ingredientes: Array, posicion: int) -> void:
+	if posicion != posicion_cliente:
+		return
+	_indice_cliente = indice
+	_encender()
+
+
+func _on_reaccion_terminada(indice: int, _correcto: bool) -> void:
+	if indice == _indice_cliente:
+		_apagar()
+
+
+func _encender() -> void:
+	var base := energia_para(rango, minimo_en_rango, exponente)
+	if _tween:
+		_tween.kill()
+	light_energy = 0.0
+	visible = true
+	_tween = create_tween()
+	_tween.tween_property(self, "light_energy", base, 0.4)
+
+
+func _apagar() -> void:
+	_indice_cliente = -1
+	if _tween:
+		_tween.kill()
+	_tween = create_tween()
+	_tween.tween_property(self, "light_energy", 0.0, 0.3)
+	_tween.tween_callback(func(): visible = false)
 
 
 ## Nivel 1: cuánta luz llega a la distancia d si a 1 m llega 1.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3]
+[gd_scene load_steps=113 format=3]
 
 [ext_resource type="Script" path="res://scripts/cocina/fuente_ingredientes.gd" id="sc_21"]
 [ext_resource type="PackedScene" path="res://scenes/ingredientes/papa.tscn" id="ps_22"]
@@ -365,6 +365,30 @@ size = Vector3(0.11, 0.15, 0.004)
 [sub_resource type="BoxShape3D" id="BoxSha_107"]
 size = Vector3(0.12, 0.16, 0.04)
 
+[sub_resource type="Environment" id="Enviro_108"]
+background_mode = 1
+background_color = Color(0.03, 0.04, 0.07, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.5, 0.45, 0.4, 1)
+ambient_light_energy = 0.18
+
+[sub_resource type="StandardMaterial3D" id="Standa_109"]
+albedo_color = Color(0.9, 0.85, 0.55, 1)
+emission_enabled = true
+emission = Color(1, 0.85, 0.45, 1)
+emission_energy_multiplier = 1.6
+
+[sub_resource type="BoxMesh" id="BoxMes_110"]
+material = SubResource("Standa_109")
+size = Vector3(0.16, 0.03, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="Standa_111"]
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMes_112"]
+material = SubResource("Standa_111")
+size = Vector3(0.01, 0.1, 0.01)
+
 [node name="Cocina" type="Node3D"]
 
 [node name="Pared" type="MeshInstance3D" parent="."]
@@ -678,3 +702,14 @@ mesh = SubResource("BoxMes_106")
 
 [node name="Forma" type="CollisionShape3D" parent="Papel4/Colision"]
 shape = SubResource("BoxSha_107")
+
+[node name="Ambiente" type="WorldEnvironment" parent="."]
+environment = SubResource("Enviro_108")
+
+[node name="Lampara" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86, -0.3)
+mesh = SubResource("BoxMes_110")
+
+[node name="Cable" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93, -0.3)
+mesh = SubResource("BoxMes_112")

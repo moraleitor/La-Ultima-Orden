@@ -8,7 +8,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.6, -0.5)
 
 [node name="LuzCliente1" type="SpotLight3D" parent="Cliente1Luz"]
-transform = Transform3D(1, 0, 0, 0, 0.7912, -0.6115, 0, 0.6115, 0.7912, 0, 0.4, 0.8)
+transform = Transform3D(1, 0, 0, 0, 0.7912, 0.6115, 0, -0.6115, 0.7912, 0, 0.4, 0.8)
 light_color = Color(0.9, 0.08, 0.05, 1)
 spot_angle = 30.0
 script = ExtResource("1_luz")
@@ -23,7 +23,7 @@ posicion_cliente = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.6, -0.5)
 
 [node name="LuzCliente2" type="SpotLight3D" parent="Cliente2Luz"]
-transform = Transform3D(1, 0, 0, 0, 0.7912, -0.6115, 0, 0.6115, 0.7912, 0, 0.4, 0.8)
+transform = Transform3D(1, 0, 0, 0, 0.7912, 0.6115, 0, -0.6115, 0.7912, 0, 0.4, 0.8)
 light_color = Color(0.9, 0.08, 0.05, 1)
 spot_angle = 30.0
 script = ExtResource("1_luz")
@@ -38,7 +38,7 @@ posicion_cliente = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.6, -0.5)
 
 [node name="LuzCliente3" type="SpotLight3D" parent="Cliente3Luz"]
-transform = Transform3D(1, 0, 0, 0, 0.7912, -0.6115, 0, 0.6115, 0.7912, 0, 0.4, 0.8)
+transform = Transform3D(1, 0, 0, 0, 0.7912, 0.6115, 0, -0.6115, 0.7912, 0, 0.4, 0.8)
 light_color = Color(0.9, 0.08, 0.05, 1)
 spot_angle = 30.0
 script = ExtResource("1_luz")
@@ -53,7 +53,7 @@ posicion_cliente = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.6, -0.5)
 
 [node name="LuzCliente4" type="SpotLight3D" parent="Cliente4Luz"]
-transform = Transform3D(1, 0, 0, 0, 0.7912, -0.6115, 0, 0.6115, 0.7912, 0, 0.4, 0.8)
+transform = Transform3D(1, 0, 0, 0, 0.7912, 0.6115, 0, -0.6115, 0.7912, 0, 0.4, 0.8)
 light_color = Color(0.9, 0.08, 0.05, 1)
 spot_angle = 30.0
 script = ExtResource("1_luz")

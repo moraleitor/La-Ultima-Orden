@@ -5,6 +5,7 @@ extends SpotLight3D
 
 @export var rango := 1.5            # m: hasta dónde alumbra en la cocina
 @export var altura := 0.9           # m sobre los pies del cocinero
+@export var adelante := 0.0         # m hacia la cámara (para alumbrar de frente)
 @export var minimo_en_rango := 0.1  # lo que debe llegar justo al borde del rango
 @export var exponente := 2.0        # atenuación tipo 1/d^2
 @export var imprimir_pruebas := true # las luces de los clientes lo apagan
@@ -13,7 +14,7 @@ var _tween: Tween
 
 
 func _ready() -> void:
-	position = Vector3(0.0, altura, 0.0)
+	position = Vector3(0.0, altura, adelante)
 	spot_range = rango
 	spot_attenuation = exponente
 	light_energy = energia_para(rango, minimo_en_rango, exponente)

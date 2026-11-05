@@ -62,3 +62,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, -0.32, 0.4)
 mesh = SubResource("Esf_brillo")
 
 [node name="LucesClientes" parent="." instance=ExtResource("3_lc")]
+
+[node name="LuzCliente1" parent="LucesClientes/Cliente1Luz" index="0"]
+encendida_al_inicio = true
+
+[node name="LuzCliente2" parent="LucesClientes/Cliente2Luz" index="0"]
+encendida_al_inicio = true
+
+[node name="LuzCliente3" parent="LucesClientes/Cliente3Luz" index="0"]
+encendida_al_inicio = true
+
+[node name="LuzCliente4" parent="LucesClientes/Cliente4Luz" index="0"]
+encendida_al_inicio = true

@@ -3,6 +3,13 @@ extends Node
 
 signal cambio_noche(es_noche: bool)
 
+const ENERGIA_POR_TENSION := [1.0, 0.75, 0.5, 0.0]
+@export var k_energia := 6.0
+@export var bajada_aviso := 0.3
+
+var tension := 0
+var energia_objetivo := 1.0
+
 @export var sol: DirectionalLight3D
 @export var entorno: WorldEnvironment
 @export var energia_sol := 1.0
@@ -16,10 +23,18 @@ var era_noche := false
 
 func _ready() -> void:
 	aplicar_hora()
+
 	era_noche = CicloDia.factor_sol(ciclo.hora) <= 0.0
+	Events.tension_cambio.connect(_on_tension_cambio)
+	Events.pedido_en_alerta.connect(_on_pedido_en_alerta)
+	Events.tension_cambio.emit(2)
+	await get_tree().create_timer(3.0).timeout
+	Events.pedido_en_alerta.emit(0)
+
 
 func _process(delta: float) -> void:
 	ciclo.avanzar(delta)
+	energia_sol = decaer(energia_sol, energia_objetivo, k_energia, delta)
 	aplicar_hora()
 	var es_noche := CicloDia.factor_sol(ciclo.hora) <= 0.0
 	if es_noche != era_noche:
@@ -34,3 +49,14 @@ func aplicar_hora() -> void:
 	sol.light_energy = energia_sol * f
 	sol.light_color = CicloDia.color_sol(h)
 	entorno.environment.ambient_light_energy = lerpf(ambiente_noche, ambiente_dia, f)
+
+func _on_tension_cambio(nivel: int) -> void:
+	tension = nivel
+	energia_objetivo = ENERGIA_POR_TENSION[clampi(nivel, 0, 3)]
+
+func _on_pedido_en_alerta(_indice: int) -> void:
+	if tension == 2:
+		energia_sol = maxf(0.0, energia_objetivo - bajada_aviso)
+
+static func decaer(actual: float, objetivo: float, k: float, dt: float) -> float:
+	return actual + (objetivo - actual) * (1.0 - exp(-k * dt))

@@ -27,9 +27,6 @@ func _ready() -> void:
 	era_noche = CicloDia.factor_sol(ciclo.hora) <= 0.0
 	Events.tension_cambio.connect(_on_tension_cambio)
 	Events.pedido_en_alerta.connect(_on_pedido_en_alerta)
-	Events.tension_cambio.emit(2)
-	await get_tree().create_timer(3.0).timeout
-	Events.pedido_en_alerta.emit(0)
 
 
 func _process(delta: float) -> void:

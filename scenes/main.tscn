@@ -1,22 +1,24 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://b4fvuygfeude"]
 
-[ext_resource type="Script" path="res://scripts/core/main.gd" id="1_main"]
+[ext_resource type="Script" uid="uid://biww58kaeum8x" path="res://scripts/core/main.gd" id="1_main"]
 [ext_resource type="PackedScene" path="res://scenes/cocina/cocina_nivel1.tscn" id="2_cocina"]
+[ext_resource type="PackedScene" uid="uid://cf8oki6yeog02" path="res://scenes/zona_a.tscn" id="3_sugp2"]
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" unique_id=2007686243]
 script = ExtResource("1_main")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=727074030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 projection = 1
 size = 1.8
 
-[node name="Cocina" parent="." instance=ExtResource("2_cocina")]
+[node name="Cocina" parent="." unique_id=999376114 instance=ExtResource("2_cocina")]
 
-[node name="WorkLight" type="OmniLight3D" parent="."]
+[node name="WorkLight" type="OmniLight3D" parent="." unique_id=2121075392]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 1.5)
 light_color = Color(0.85, 0.82, 0.55, 1)
-light_energy = 1.0
 omni_range = 6.0
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=2137817759]
+
+[node name="ZonaA" parent="." unique_id=1532476533 instance=ExtResource("3_sugp2")]

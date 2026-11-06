@@ -9,6 +9,8 @@ var i := 0
 var espera := 0
 
 func _ready() -> void:
+	if process_mode == Node.PROCESS_MODE_DISABLED:
+		return
 	camara.make_current()
 	var env := sistema.entorno.environment
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR

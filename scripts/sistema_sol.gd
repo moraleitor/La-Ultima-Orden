@@ -11,7 +11,6 @@ extends Node
 @onready var ciclo: CicloDia = $CicloDia
 
 func _ready() -> void:
-	print(CicloDia.elevacion(9.0), " ", CicloDia.factor_sol(9.0), " ", CicloDia.factor_sol(20.0))
 	aplicar_hora()
 
 func _process(delta: float) -> void:

@@ -2,7 +2,9 @@ class_name CicloDia
 
 extends Node
 
-const COLOR_BASE := Color("d9b44a") # Color personalizado de nestra paleta
+const COLOR_BASE := Color("d9b44a") 
+const COLOR_BAJO := Color("6d5a25") # d9b44a atenuado, cerca del horizonte
+const COLOR_ALTO := Color("d9b44a") # Color personalizado de nestra paleta
 
 @export var hora := 8.0 # h, al empezar
 
@@ -21,4 +23,4 @@ static func factor_sol(h: float) -> float:
 	return maxf(0.0, sin(deg_to_rad(elevacion(h)))) # el seno de la elevación (¡en radianes!)
 
 static func color_sol(h: float) -> Color:
-	return COLOR_BASE.lerp(Color("d9b44a"), factor_sol(h))
+	return COLOR_BAJO.lerp(COLOR_ALTO, factor_sol(h))

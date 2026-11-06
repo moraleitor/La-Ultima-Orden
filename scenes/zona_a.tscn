@@ -7,26 +7,35 @@
 [sub_resource type="Environment" id="Environment_q83mc"]
 background_mode = 1
 background_color = Color(0.078431375, 0.08627451, 0.10980392, 1)
-ambient_light_color = Color(0.078431375, 0.08627451, 0.10980392, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.5, 0.45, 0.4, 1)
+ambient_light_energy = 0.18
 tonemap_mode = 2
 
 [node name="ZonaA" type="Node3D" unique_id=1532476533]
 
 [node name="Cocina" parent="." unique_id=32656360 instance=ExtResource("1_q83mc")]
 
+[node name="Ambiente" parent="Cocina" index="26"]
+environment = SubResource("Environment_q83mc")
+
 [node name="Camera3D2" type="Camera3D" parent="." unique_id=1248121025]
 transform = Transform3D(0.99988747, -0.007554289, -0.012964715, 0.015005037, 0.50339353, 0.86392695, 0, -0.8640242, 0.5034502, 0, 0.39171767, 0.97598267)
 projection = 1
+current = true
 size = 1.8
 
 [node name="Sol" type="DirectionalLight3D" parent="." unique_id=1285389463]
 shadow_enabled = true
 
-[node name="SistemaSol" type="Node" parent="." unique_id=547242531]
+[node name="SistemaSol" type="Node" parent="." unique_id=547242531 node_paths=PackedStringArray("sol", "entorno")]
 script = ExtResource("2_um4ug")
+sol = NodePath("../Sol")
+entorno = NodePath("../Cocina/Ambiente")
 
 [node name="CicloDia" type="Node" parent="SistemaSol" unique_id=966520995]
 script = ExtResource("3_m3ihs")
+hora = 12.0
+pausado = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1147181803]
-environment = SubResource("Environment_q83mc")
+[editable path="Cocina"]

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" path="res://scenes/cocina/cocina_nivel1.tscn" id="1_q83mc"]
 [ext_resource type="Script" uid="uid://d0vl3uah2goql" path="res://scripts/sistema_sol.gd" id="2_um4ug"]
 [ext_resource type="Script" uid="uid://n8aox0oww1k3" path="res://scripts/ciclo_dia.gd" id="3_m3ihs"]
+[ext_resource type="Script" uid="uid://bl5v60xfwixlh" path="res://scripts/fotometro.gd" id="4_um4ug"]
 
 [sub_resource type="Environment" id="Environment_q83mc"]
 background_mode = 1
@@ -11,6 +12,8 @@ ambient_light_source = 2
 ambient_light_color = Color(0.5, 0.45, 0.4, 1)
 ambient_light_energy = 0.18
 tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3fcsw"]
 
 [node name="ZonaA" type="Node3D" unique_id=1532476533]
 
@@ -37,5 +40,19 @@ entorno = NodePath("../Cocina/Ambiente")
 script = ExtResource("3_m3ihs")
 hora = 12.0
 pausado = true
+
+[node name="PlanoMedida" type="MeshInstance3D" parent="." unique_id=703618565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0)
+mesh = SubResource("PlaneMesh_3fcsw")
+
+[node name="CamaraFotometro" type="Camera3D" parent="." unique_id=1054419673]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 30, 3, 0)
+
+[node name="Fotometro" type="Node" parent="." unique_id=4517433 node_paths=PackedStringArray("sistema", "camara", "superficie")]
+process_mode = 4
+script = ExtResource("4_um4ug")
+sistema = NodePath("../SistemaSol")
+camara = NodePath("../CamaraFotometro")
+superficie = NodePath("../PlanoMedida")
 
 [editable path="Cocina"]

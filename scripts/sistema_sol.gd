@@ -57,3 +57,13 @@ func _on_pedido_en_alerta(_indice: int) -> void:
 
 static func decaer(actual: float, objetivo: float, k: float, dt: float) -> float:
 	return actual + (objetivo - actual) * (1.0 - exp(-k * dt))
+
+static func lambert(normal: Vector3, hacia_luz: Vector3) -> float:
+	var n := normal.normalized()
+	var l := hacia_luz.normalized()
+	return maxf(0.0, n.dot(l))
+
+func prediccion_piso() -> float:
+	var hacia_luz := sol.global_transform.basis.z
+	var rojo_lineal := sol.light_color.srgb_to_linear().r
+	return sol.light_energy * rojo_lineal * lambert(Vector3.UP, hacia_luz)

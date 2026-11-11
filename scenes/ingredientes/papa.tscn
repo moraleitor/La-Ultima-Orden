@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/cocina/ingrediente.gd" id="sc_1"]
+
+[sub_resource type="StandardMaterial3D" id="Standa_2"]
+albedo_color = Color(0.62, 0.46, 0.27, 1)
+
+[sub_resource type="SphereMesh" id="Sphere_3"]
+material = SubResource("Standa_2")
+radius = 0.05
+height = 0.07
+
+[node name="Papa" type="Node3D"]
+script = ExtResource("sc_1")
+nombre = "papa"
+
+[node name="Modelo" type="MeshInstance3D" parent="."]
+mesh = SubResource("Sphere_3")

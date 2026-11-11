@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/visual/cliente_view.gd" id="e1"]
+[ext_resource type="Script" path="res://scripts/visual/cliente_entrada.gd" id="e2"]
+
+[sub_resource type="StandardMaterial3D" id="m1"]
+albedo_color = Color(0.120, 0.120, 0.140, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="m2"]
+albedo_color = Color(0.420, 0.380, 0.340, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="m3"]
+albedo_color = Color(0.030, 0.030, 0.030, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+texture_filter = 0
+
+[sub_resource type="CapsuleMesh" id="s4"]
+material = SubResource("m1")
+radius = 0.27
+height = 1.5
+radial_segments = 12
+rings = 4
+
+[sub_resource type="SphereMesh" id="s5"]
+material = SubResource("m2")
+radius = 0.14
+height = 0.28
+radial_segments = 12
+rings = 8
+
+[sub_resource type="BoxMesh" id="s6"]
+material = SubResource("m3")
+size = Vector3(0.2, 0.025, 0.02)
+
+[sub_resource type="BoxMesh" id="s7"]
+material = SubResource("m3")
+size = Vector3(0.04, 0.02, 0.02)
+
+[sub_resource type="BoxMesh" id="s8"]
+material = SubResource("m1")
+size = Vector3(0.66, 0.14, 0.3)
+
+[sub_resource type="BoxShape3D" id="h9"]
+size = Vector3(0.6, 1.9, 0.4)
+
+[node name="Cliente" type="Node3D" groups=["cliente"]]
+script = ExtResource("e1")
+posicion = 0
+
+[node name="Modelo" type="Node3D" parent="."]
+
+[node name="Cuerpo" type="MeshInstance3D" parent="Modelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+mesh = SubResource("s4")
+
+[node name="Cabeza" type="MeshInstance3D" parent="Modelo"]
+transform = Transform3D(0.9, 0, 0, 0, 1.1, 0, 0, 0, 1, 0, 1.72, 0.02)
+mesh = SubResource("s5")
+
+[node name="Ceja" type="MeshInstance3D" parent="Modelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76, 0.14)
+mesh = SubResource("s6")
+
+[node name="OjoIzq" type="MeshInstance3D" parent="Modelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 1.72, 0.14)
+mesh = SubResource("s7")
+
+[node name="OjoDer" type="MeshInstance3D" parent="Modelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 1.72, 0.14)
+mesh = SubResource("s7")
+
+[node name="Hombros" type="MeshInstance3D" parent="Modelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38, 0)
+mesh = SubResource("s8")
+
+[node name="Entrada" type="Node" parent="."]
+script = ExtResource("e2")
+
+[node name="Colision" type="StaticBody3D" parent="."]
+
+[node name="Forma" type="CollisionShape3D" parent="Colision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+shape = SubResource("h9")

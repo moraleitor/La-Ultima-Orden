@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/mapa/pasillo.tscn" id="e1"]
+[ext_resource type="PackedScene" path="res://scenes/mapa/mesa_cocina.tscn" id="e2"]
+
+[sub_resource type="Environment" id="amb"]
+background_mode = 1
+background_color = Color(0.005, 0.006, 0.008, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.45, 0.5, 0.55, 1)
+ambient_light_energy = 0.28
+fog_enabled = true
+fog_light_color = Color(0.005, 0.006, 0.008, 1)
+fog_density = 0.05
+tonemap_mode = 2
+
+[node name="Mapa" type="Node3D"]
+
+[node name="Pasillo" parent="." instance=ExtResource("e1")]
+
+[node name="Mesa" parent="." instance=ExtResource("e2")]
+
+[node name="Ambiente" type="WorldEnvironment" parent="."]
+environment = SubResource("amb")

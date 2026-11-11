@@ -1,0 +1,564 @@
+[gd_scene load_steps=61 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Plaster/Plaster_09-512x512.png" id="e1"]
+[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Tile/Tile_15-512x512.png" id="e2"]
+[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Tile/Tile_03-512x512.png" id="e3"]
+[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Plaster/Plaster_19-512x512.png" id="e4"]
+[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Metal/Metal_07-512x512.png" id="e5"]
+[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Metal/Metal_03-512x512.png" id="e6"]
+[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Wood/Wood_13-512x512.png" id="e7"]
+[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Dirt/Dirt_16-512x512.png" id="e8"]
+[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Metal/Metal_17-512x512.png" id="e9"]
+[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Plaster/Plaster_01-512x512.png" id="e10"]
+[ext_resource type="PackedScene" path="res://assets/modelos/kenney_food-kit/Models/GLB format/barrel.glb" id="e11"]
+[ext_resource type="PackedScene" path="res://assets/modelos/Cooking Assets/GLB/Appliances/appliance_refrigerator.glb" id="e12"]
+[ext_resource type="PackedScene" path="res://assets/modelos/Cooking Assets/GLB/Appliances/appliance_oven.glb" id="e13"]
+[ext_resource type="PackedScene" path="res://assets/modelos/Cooking Assets/GLB/Appliances/appliance_electric_oven.glb" id="e14"]
+[ext_resource type="PackedScene" path="res://assets/modelos/Cooking Assets/GLB/Pans/pan_casserole_pot.glb" id="e15"]
+[ext_resource type="PackedScene" path="res://assets/modelos/Cooking Assets/GLB/Pans/pan_frying_pan_001.glb" id="e16"]
+[ext_resource type="PackedScene" path="res://assets/modelos/kenney_food-kit/Models/GLB format/plate-broken.glb" id="e17"]
+[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Wood/Wood_05-512x512.png" id="e18"]
+
+[sub_resource type="StandardMaterial3D" id="m1"]
+albedo_texture = ExtResource("e1")
+albedo_color = Color(0.420, 0.460, 0.420, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+uv1_scale = Vector3(0.45, 0.45, 0.45)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="m2"]
+albedo_texture = ExtResource("e2")
+albedo_color = Color(0.360, 0.400, 0.380, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+uv1_scale = Vector3(0.8, 0.8, 0.8)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="m3"]
+albedo_texture = ExtResource("e3")
+albedo_color = Color(0.420, 0.420, 0.420, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+uv1_scale = Vector3(0.7, 0.7, 0.7)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="m4"]
+albedo_texture = ExtResource("e4")
+albedo_color = Color(0.280, 0.280, 0.300, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+uv1_scale = Vector3(0.4, 0.4, 0.4)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="m5"]
+albedo_texture = ExtResource("e5")
+albedo_color = Color(0.450, 0.500, 0.450, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+uv1_scale = Vector3(0.6, 0.6, 0.6)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="m6"]
+albedo_texture = ExtResource("e6")
+albedo_color = Color(0.500, 0.500, 0.500, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+uv1_scale = Vector3(0.8, 0.8, 0.8)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="m7"]
+albedo_texture = ExtResource("e7")
+albedo_color = Color(0.400, 0.360, 0.300, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+uv1_scale = Vector3(0.8, 0.8, 0.8)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="m8"]
+albedo_texture = ExtResource("e8")
+albedo_color = Color(0.550, 0.500, 0.450, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+uv1_scale = Vector3(0.9, 0.9, 0.9)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="m9"]
+albedo_color = Color(0.010, 0.010, 0.012, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="m10"]
+albedo_texture = ExtResource("e9")
+albedo_color = Color(0.300, 0.300, 0.320, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+uv1_scale = Vector3(0.7, 0.7, 0.7)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="m11"]
+albedo_texture = ExtResource("e10")
+albedo_color = Color(0.360, 0.380, 0.360, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+uv1_scale = Vector3(0.6, 0.6, 0.6)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="s12"]
+material = SubResource("m3")
+size = Vector3(5.2, 0.1, 18.45)
+
+[sub_resource type="BoxMesh" id="s13"]
+material = SubResource("m4")
+size = Vector3(5.2, 0.1, 18.45)
+
+[sub_resource type="BoxMesh" id="s14"]
+material = SubResource("m1")
+size = Vector3(0.1, 3.0, 18.45)
+
+[sub_resource type="BoxMesh" id="s15"]
+material = SubResource("m2")
+size = Vector3(0.04, 1.1, 18.45)
+
+[sub_resource type="BoxMesh" id="s16"]
+material = SubResource("m10")
+size = Vector3(0.08, 0.05, 18.45)
+
+[sub_resource type="BoxMesh" id="s17"]
+material = SubResource("m1")
+size = Vector3(5.4, 3.0, 0.1)
+
+[sub_resource type="BoxMesh" id="s18"]
+material = SubResource("m9")
+size = Vector3(5.4, 3.0, 0.1)
+
+[sub_resource type="BoxShape3D" id="h19"]
+size = Vector3(5.2, 0.1, 18.45)
+
+[sub_resource type="BoxMesh" id="s20"]
+material = SubResource("m11")
+size = Vector3(0.34, 3.0, 0.34)
+
+[sub_resource type="BoxMesh" id="s21"]
+material = SubResource("m10")
+size = Vector3(5.2, 0.24, 0.3)
+
+[sub_resource type="CylinderMesh" id="s22"]
+material = SubResource("m6")
+top_radius = 0.07
+bottom_radius = 0.07
+height = 18.45
+radial_segments = 12
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="m23"]
+albedo_color = Color(0.220, 0.230, 0.220, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="s24"]
+material = SubResource("m23")
+size = Vector3(0.35, 0.06, 1.2)
+
+[sub_resource type="StandardMaterial3D" id="m25"]
+albedo_color = Color(0.160, 0.170, 0.160, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="s26"]
+material = SubResource("m25")
+size = Vector3(0.3, 0.02, 1.1)
+
+[sub_resource type="StandardMaterial3D" id="m27"]
+albedo_texture = ExtResource("e5")
+albedo_color = Color(0.330, 0.360, 0.330, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+uv1_scale = Vector3(0.9, 0.9, 0.9)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="s28"]
+material = SubResource("m27")
+size = Vector3(0.06, 2.1, 1.0)
+
+[sub_resource type="BoxMesh" id="s29"]
+material = SubResource("m10")
+size = Vector3(0.05, 2.2, 1.12)
+
+[sub_resource type="BoxMesh" id="s30"]
+material = SubResource("m9")
+size = Vector3(0.04, 0.9, 1.4)
+
+[sub_resource type="BoxMesh" id="s31"]
+material = SubResource("m10")
+size = Vector3(0.08, 0.06, 1.5)
+
+[sub_resource type="BoxMesh" id="s32"]
+material = SubResource("m10")
+size = Vector3(0.08, 0.9, 0.06)
+
+[sub_resource type="BoxMesh" id="s33"]
+material = SubResource("m8")
+size = Vector3(1.6, 0.004, 1.2800000000000002)
+
+[sub_resource type="BoxMesh" id="s34"]
+material = SubResource("m8")
+size = Vector3(2.0, 0.004, 1.6)
+
+[sub_resource type="BoxMesh" id="s35"]
+material = SubResource("m8")
+size = Vector3(2.4, 0.004, 1.92)
+
+[sub_resource type="BoxMesh" id="s36"]
+material = SubResource("m8")
+size = Vector3(1.1, 0.004, 0.8800000000000001)
+
+[sub_resource type="BoxMesh" id="s37"]
+material = SubResource("m8")
+size = Vector3(1.8, 0.004, 1.4400000000000002)
+
+[sub_resource type="StandardMaterial3D" id="m38"]
+albedo_texture = ExtResource("e18")
+albedo_color = Color(0.400, 0.340, 0.250, 1.000)
+roughness = 1.00
+metallic_specular = 0.0
+uv1_scale = Vector3(1.0, 1.0, 1.0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="s39"]
+material = SubResource("m38")
+size = Vector3(0.55, 0.5, 0.55)
+
+[sub_resource type="BoxMesh" id="s40"]
+material = SubResource("m5")
+size = Vector3(0.5, 0.04, 1.2)
+
+[sub_resource type="BoxMesh" id="s41"]
+material = SubResource("m5")
+size = Vector3(0.05, 1.7, 0.05)
+
+[sub_resource type="BoxMesh" id="s42"]
+material = SubResource("m4")
+size = Vector3(0.9, 0.03, 0.6)
+
+[node name="Pasillo" type="Node3D"]
+
+[node name="Piso" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -6.775)
+mesh = SubResource("s12")
+
+[node name="Techo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.05, -6.775)
+mesh = SubResource("s13")
+
+[node name="ParedIzq" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.65, 1.5, -6.775)
+mesh = SubResource("s14")
+
+[node name="ZocaloIzq" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59, 0.55, -6.775)
+mesh = SubResource("s15")
+
+[node name="RemateIzq" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.57, 1.12, -6.775)
+mesh = SubResource("s16")
+
+[node name="ParedDer" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65, 1.5, -6.775)
+mesh = SubResource("s14")
+
+[node name="ZocaloDer" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59, 0.55, -6.775)
+mesh = SubResource("s15")
+
+[node name="RemateDer" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57, 1.12, -6.775)
+mesh = SubResource("s16")
+
+[node name="ParedCerca" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 2.5)
+mesh = SubResource("s17")
+
+[node name="ParedFondo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -16.05)
+mesh = SubResource("s18")
+
+[node name="Colision" type="StaticBody3D" parent="."]
+
+[node name="Forma" type="CollisionShape3D" parent="Colision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -6.775)
+shape = SubResource("h19")
+
+[node name="ColumnaIzq0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43, 1.5, -1.55)
+mesh = SubResource("s20")
+
+[node name="ColumnaDer0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43, 1.5, -1.55)
+mesh = SubResource("s20")
+
+[node name="Viga0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.88, -1.55)
+mesh = SubResource("s21")
+
+[node name="ColumnaIzq1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43, 1.5, -4.55)
+mesh = SubResource("s20")
+
+[node name="ColumnaDer1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43, 1.5, -4.55)
+mesh = SubResource("s20")
+
+[node name="Viga1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.88, -4.55)
+mesh = SubResource("s21")
+
+[node name="ColumnaIzq2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43, 1.5, -7.55)
+mesh = SubResource("s20")
+
+[node name="ColumnaDer2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43, 1.5, -7.55)
+mesh = SubResource("s20")
+
+[node name="Viga2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.88, -7.55)
+mesh = SubResource("s21")
+
+[node name="ColumnaIzq3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43, 1.5, -10.55)
+mesh = SubResource("s20")
+
+[node name="ColumnaDer3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43, 1.5, -10.55)
+mesh = SubResource("s20")
+
+[node name="Viga3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.88, -10.55)
+mesh = SubResource("s21")
+
+[node name="ColumnaIzq4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43, 1.5, -13.55)
+mesh = SubResource("s20")
+
+[node name="ColumnaDer4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43, 1.5, -13.55)
+mesh = SubResource("s20")
+
+[node name="Viga4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.88, -13.55)
+mesh = SubResource("s21")
+
+[node name="Tubo0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -2, 2.55, -6.775)
+mesh = SubResource("s22")
+
+[node name="Tubo1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 1.8, 2.55, -6.775)
+mesh = SubResource("s22")
+
+[node name="LuminariaMuerta0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, -0.05)
+mesh = SubResource("s24")
+
+[node name="TapaLuminaria0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66, -0.05)
+mesh = SubResource("s26")
+
+[node name="LuminariaMuerta1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, -3.05)
+mesh = SubResource("s24")
+
+[node name="TapaLuminaria1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66, -3.05)
+mesh = SubResource("s26")
+
+[node name="LuminariaMuerta2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, -6.05)
+mesh = SubResource("s24")
+
+[node name="TapaLuminaria2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66, -6.05)
+mesh = SubResource("s26")
+
+[node name="LuminariaMuerta3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, -9.05)
+mesh = SubResource("s24")
+
+[node name="TapaLuminaria3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66, -9.05)
+mesh = SubResource("s26")
+
+[node name="LuminariaMuerta4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, -12.05)
+mesh = SubResource("s24")
+
+[node name="TapaLuminaria4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66, -12.05)
+mesh = SubResource("s26")
+
+[node name="PuertaIzq0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53, 1.05, -5.5)
+mesh = SubResource("s28")
+
+[node name="MarcoIzq0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55, 1.1, -5.5)
+mesh = SubResource("s29")
+
+[node name="PuertaDer1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53, 1.05, -10)
+mesh = SubResource("s28")
+
+[node name="MarcoDer1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55, 1.1, -10)
+mesh = SubResource("s29")
+
+[node name="PuertaIzq2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53, 1.05, -13.5)
+mesh = SubResource("s28")
+
+[node name="MarcoIzq2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55, 1.1, -13.5)
+mesh = SubResource("s29")
+
+[node name="PuertaDer2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53, 1.05, -13.5)
+mesh = SubResource("s28")
+
+[node name="MarcoDer2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55, 1.1, -13.5)
+mesh = SubResource("s29")
+
+[node name="VentanaPase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55, 1.6, -2.3)
+mesh = SubResource("s30")
+
+[node name="MarcoPaseA" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53, 2.08, -2.3)
+mesh = SubResource("s31")
+
+[node name="MarcoPaseB" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53, 1.12, -2.3)
+mesh = SubResource("s31")
+
+[node name="MarcoPaseC" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53, 1.6, -1.57)
+mesh = SubResource("s32")
+
+[node name="MarcoPaseD" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53, 1.6, -3.03)
+mesh = SubResource("s32")
+
+[node name="Mancha0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0.006, -5)
+mesh = SubResource("s33")
+
+[node name="Mancha1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0.006, -7.5)
+mesh = SubResource("s34")
+
+[node name="Mancha2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.006, -10.5)
+mesh = SubResource("s35")
+
+[node name="Mancha3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.006, -3.4)
+mesh = SubResource("s36")
+
+[node name="Mancha4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0.006, -13)
+mesh = SubResource("s37")
+
+[node name="Barril1" parent="." instance=ExtResource("e11")]
+transform = Transform3D(0, -0.9397, 0.342, 1, 0, 0, -0, 0.342, 0.9397, -2, 0.34, -4.2)
+
+[node name="Barril2" parent="." instance=ExtResource("e11")]
+transform = Transform3D(0, -0.9659, -0.2588, 1, 0, 0, 0, -0.2588, 0.9659, -1.95, 0.34, -4.95)
+
+[node name="Barril3" parent="." instance=ExtResource("e11")]
+transform = Transform3D(0, -0.766, 0.6428, 1, 0, 0, -0, 0.6428, 0.766, 2.05, 0.34, -8.2)
+
+[node name="NeveraVieja" parent="." instance=ExtResource("e12")]
+transform = Transform3D(0, 0, 0.052, 0, 0.052, 0, -0.052, 0, 0, -2.05, 0, -6.6)
+
+[node name="HornoViejo" parent="." instance=ExtResource("e13")]
+transform = Transform3D(0, 0, -0.052, 0, 0.052, 0, 0.052, 0, 0, 2.05, 0, -5.3)
+
+[node name="HornoViejo2" parent="." instance=ExtResource("e14")]
+transform = Transform3D(0, 0, -0.05, 0, 0.05, 0, 0.05, 0, 0, 2.05, 0, -11.5)
+
+[node name="OllaTirada" parent="." instance=ExtResource("e15")]
+transform = Transform3D(0.041, 0.0282, 0.005, 0, 0.0087, -0.0492, -0.0287, 0.0403, 0.0071, 1.2, 0.08, -6.5)
+
+[node name="SartenTirado" parent="." instance=ExtResource("e16")]
+transform = Transform3D(0.0171, 0, 0.047, 0, 0.05, 0, -0.047, 0, 0.0171, -1.1, 0.02, -8.8)
+
+[node name="PlatoRoto" parent="." instance=ExtResource("e17")]
+transform = Transform3D(0.4924, 0, 0.0868, 0, 0.5, 0, -0.0868, 0, 0.4924, 0.5, 0, -4.4)
+
+[node name="Caja0" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9659, 0, 0.2588, 0, 1, 0, -0.2588, 0, 0.9659, 2, 0.25, -2.2)
+mesh = SubResource("s39")
+
+[node name="Caja1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9903, 0, -0.1392, 0, 1, 0, 0.1392, 0, 0.9903, 1.95, 0.25, -2.8)
+mesh = SubResource("s39")
+
+[node name="Caja2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98, 0.74, -2.5)
+mesh = SubResource("s39")
+
+[node name="EstanteA" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3, 0.5, -9)
+mesh = SubResource("s40")
+
+[node name="EstanteB" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3, 1.1, -9)
+mesh = SubResource("s40")
+
+[node name="EstanteC" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3, 1.7, -9)
+mesh = SubResource("s40")
+
+[node name="PataEstante0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3, 0.85, -9.58)
+mesh = SubResource("s41")
+
+[node name="PataEstante1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3, 0.85, -8.42)
+mesh = SubResource("s41")
+
+[node name="PanelCaido1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9854, -0.0644, 0.1574, 0.1261, 0.8975, -0.4226, -0.114, 0.4363, 0.8925, 1.3, 2.5, -7)
+mesh = SubResource("s42")
+
+[node name="PanelCaido2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9659, 0.2588, 0, -0.2241, 0.8365, 0.5, 0.1294, -0.483, 0.866, -1, 2.7, -9.8)
+mesh = SubResource("s42")

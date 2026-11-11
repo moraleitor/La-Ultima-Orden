@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://o2atlw0rp0nu"
+path="res://.godot/imported/sercups_champagne_flute.obj-12108a178a631a4ca44002d59b4b1b0e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sercups_champagne_flute.obj-12108a178a631a4ca44002d59b4b1b0e.mesh"]
+
+source_file="res://assets/modelos/Cooking Assets-zip/Champagne Flute/sercups_champagne_flute.obj"
+dest_files=["res://.godot/imported/sercups_champagne_flute.obj-12108a178a631a4ca44002d59b4b1b0e.mesh", "res://.godot/imported/sercups_champagne_flute.obj-12108a178a631a4ca44002d59b4b1b0e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

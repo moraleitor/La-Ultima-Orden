@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dqs2c1i465son"
+path="res://.godot/imported/knife_tomato_knife.obj-32923e8715fcbab561ea0999a6e15d93.mesh"
+
+[deps]
+
+files=["res://.godot/imported/knife_tomato_knife.obj-32923e8715fcbab561ea0999a6e15d93.mesh"]
+
+source_file="res://assets/modelos/Cooking Assets-zip/Tomato Knife/knife_tomato_knife.obj"
+dest_files=["res://.godot/imported/knife_tomato_knife.obj-32923e8715fcbab561ea0999a6e15d93.mesh", "res://.godot/imported/knife_tomato_knife.obj-32923e8715fcbab561ea0999a6e15d93.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

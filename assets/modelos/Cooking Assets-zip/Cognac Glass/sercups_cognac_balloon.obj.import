@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ds1xoyd1nta8o"
+path="res://.godot/imported/sercups_cognac_balloon.obj-dfe04500fa8a629e0b7227cd6e0e7849.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sercups_cognac_balloon.obj-dfe04500fa8a629e0b7227cd6e0e7849.mesh"]
+
+source_file="res://assets/modelos/Cooking Assets-zip/Cognac Glass/sercups_cognac_balloon.obj"
+dest_files=["res://.godot/imported/sercups_cognac_balloon.obj-dfe04500fa8a629e0b7227cd6e0e7849.mesh", "res://.godot/imported/sercups_cognac_balloon.obj-dfe04500fa8a629e0b7227cd6e0e7849.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

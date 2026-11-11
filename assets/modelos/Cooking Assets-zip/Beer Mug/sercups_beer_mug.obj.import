@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bn2poqscwdneo"
+path="res://.godot/imported/sercups_beer_mug.obj-b20cfe2bb1906f39862ed7e23e2c1578.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sercups_beer_mug.obj-b20cfe2bb1906f39862ed7e23e2c1578.mesh"]
+
+source_file="res://assets/modelos/Cooking Assets-zip/Beer Mug/sercups_beer_mug.obj"
+dest_files=["res://.godot/imported/sercups_beer_mug.obj-b20cfe2bb1906f39862ed7e23e2c1578.mesh", "res://.godot/imported/sercups_beer_mug.obj-b20cfe2bb1906f39862ed7e23e2c1578.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

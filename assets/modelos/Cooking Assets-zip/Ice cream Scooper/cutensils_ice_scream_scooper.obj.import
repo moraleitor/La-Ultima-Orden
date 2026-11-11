@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://7hiw368ys5iy"
+path="res://.godot/imported/cutensils_ice_scream_scooper.obj-55b8a70973735fb7a5f707b917b6a496.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cutensils_ice_scream_scooper.obj-55b8a70973735fb7a5f707b917b6a496.mesh"]
+
+source_file="res://assets/modelos/Cooking Assets-zip/Ice cream Scooper/cutensils_ice_scream_scooper.obj"
+dest_files=["res://.godot/imported/cutensils_ice_scream_scooper.obj-55b8a70973735fb7a5f707b917b6a496.mesh", "res://.godot/imported/cutensils_ice_scream_scooper.obj-55b8a70973735fb7a5f707b917b6a496.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

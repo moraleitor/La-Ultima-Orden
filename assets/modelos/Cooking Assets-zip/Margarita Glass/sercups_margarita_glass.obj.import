@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bahpn3f03ydsv"
+path="res://.godot/imported/sercups_margarita_glass.obj-9767c1df3edb9e4cdd565010029d27fb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sercups_margarita_glass.obj-9767c1df3edb9e4cdd565010029d27fb.mesh"]
+
+source_file="res://assets/modelos/Cooking Assets-zip/Margarita Glass/sercups_margarita_glass.obj"
+dest_files=["res://.godot/imported/sercups_margarita_glass.obj-9767c1df3edb9e4cdd565010029d27fb.mesh", "res://.godot/imported/sercups_margarita_glass.obj-9767c1df3edb9e4cdd565010029d27fb.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

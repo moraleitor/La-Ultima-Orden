@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dlx5q2jx5415q"
+path="res://.godot/imported/serving_bowl_2.obj-b302305d2363e465f1cbf07ef3cf56ea.mesh"
+
+[deps]
+
+files=["res://.godot/imported/serving_bowl_2.obj-b302305d2363e465f1cbf07ef3cf56ea.mesh"]
+
+source_file="res://assets/modelos/Cooking Assets-zip/Serving Bowl/serving_bowl_2.obj"
+dest_files=["res://.godot/imported/serving_bowl_2.obj-b302305d2363e465f1cbf07ef3cf56ea.mesh", "res://.godot/imported/serving_bowl_2.obj-b302305d2363e465f1cbf07ef3cf56ea.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

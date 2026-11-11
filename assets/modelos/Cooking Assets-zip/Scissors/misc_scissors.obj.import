@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b0s44yxjbkxng"
+path="res://.godot/imported/misc_scissors.obj-e24a67b6cc7c3639b96f8aeac9fabff7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/misc_scissors.obj-e24a67b6cc7c3639b96f8aeac9fabff7.mesh"]
+
+source_file="res://assets/modelos/Cooking Assets-zip/Scissors/misc_scissors.obj"
+dest_files=["res://.godot/imported/misc_scissors.obj-e24a67b6cc7c3639b96f8aeac9fabff7.mesh", "res://.godot/imported/misc_scissors.obj-e24a67b6cc7c3639b96f8aeac9fabff7.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

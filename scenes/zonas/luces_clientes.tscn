@@ -5,7 +5,7 @@
 [node name="LucesClientes" type="Node3D"]
 
 [node name="Cliente1Luz" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.6, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35, 1.2, -1.2)
 
 [node name="LuzCliente1" type="SpotLight3D" parent="Cliente1Luz"]
 transform = Transform3D(1, 0, 0, 0, 0.894, -0.447, 0, 0.447, 0.894, 0, 0.4, 0.8)
@@ -20,7 +20,7 @@ imprimir_pruebas = false
 posicion_cliente = 0
 
 [node name="Cliente2Luz" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.6, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 1.2, -1.2)
 
 [node name="LuzCliente2" type="SpotLight3D" parent="Cliente2Luz"]
 transform = Transform3D(1, 0, 0, 0, 0.894, -0.447, 0, 0.447, 0.894, 0, 0.4, 0.8)
@@ -35,7 +35,7 @@ imprimir_pruebas = false
 posicion_cliente = 1
 
 [node name="Cliente3Luz" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.6, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 1.2, -1.2)
 
 [node name="LuzCliente3" type="SpotLight3D" parent="Cliente3Luz"]
 transform = Transform3D(1, 0, 0, 0, 0.894, -0.447, 0, 0.447, 0.894, 0, 0.4, 0.8)
@@ -50,7 +50,7 @@ imprimir_pruebas = false
 posicion_cliente = 2
 
 [node name="Cliente4Luz" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.6, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35, 1.2, -1.2)
 
 [node name="LuzCliente4" type="SpotLight3D" parent="Cliente4Luz"]
 transform = Transform3D(1, 0, 0, 0, 0.894, -0.447, 0, 0.447, 0.894, 0, 0.4, 0.8)

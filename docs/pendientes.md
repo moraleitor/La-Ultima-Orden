@@ -14,7 +14,7 @@
 - [ ] Probar con cubos de colores antes de esperar los modelos.
 
 ## Danna
-- [x] Escena de cocina con cámara ortográfica fija (resolución de referencia 320 x 180). Está en `scenes/cocina/cocina_nivel1.tscn` con formas simples; reemplazar por los modelos cuando existan.
+- [x] Mapa nuevo: pasillo rectangular oscuro con la mesa de cocina al frente, cámara en diagonal y resolución de referencia 640 x 360. Está en `scenes/mapa/` (pasillo, mesa_cocina y mapa) y se arma en `scenes/main.tscn` junto con los clientes (`scenes/cliente/`), el jugador con brazos (`scenes/player/`) y el screamer (`scenes/screamer/`). Cliente y screamer son siluetas de relleno hasta tener modelos. La papa usa el modelo de la remolacha pintado, porque no hay modelo de papa.
 - [ ] Tres apariencias de cliente con expresión de espera, alerta y reacción.
 - [ ] Papeles con siluetas de ingredientes, borde rojo y reloj.
 - [ ] Interfaz: reloj, barra de cocción de 7 s, círculo de corte, pictogramas.

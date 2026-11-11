@@ -52,8 +52,8 @@ func _agarrar() -> void:
 	if hit.is_empty():
 		return
 	# La mano se estira hacia lo que tocó y los dedos se cierran.
-	var destino := camara.to_local(hit.position) - Vector3(0.15, -0.3, -0.55)
-	_animar(1.0, _pos_brazos + destino * 0.3)
+	var destino := (camara.to_local(hit.position) - Vector3(0.0, -0.26, -0.5)) * 0.2
+	_animar(1.0, _pos_brazos + destino.limit_length(0.06))
 
 
 func _soltar() -> void:
@@ -98,5 +98,8 @@ func _pintar_brazos() -> void:
 	var mat := StandardMaterial3D.new()
 	mat.albedo_texture = TEXTURA_BRAZOS
 	mat.roughness = 1.0
+	mat.emission_enabled = true     # para que las manos se vean aunque haya poca luz
+	mat.emission_texture = TEXTURA_BRAZOS
+	mat.emission_energy_multiplier = 0.45
 	for m in brazos.find_children("*", "MeshInstance3D", true, false):
 		(m as MeshInstance3D).material_override = mat

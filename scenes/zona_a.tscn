@@ -30,7 +30,6 @@ size = 1.8
 
 [node name="Sol" type="DirectionalLight3D" parent="." unique_id=1285389463]
 shadow_enabled = true
-directional_shadow_mode = 0
 
 [node name="SistemaSol" type="Node" parent="." unique_id=547242531 node_paths=PackedStringArray("sol", "entorno")]
 script = ExtResource("2_um4ug")

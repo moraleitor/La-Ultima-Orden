@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bm2h8k1418q1y"
+path="res://.godot/imported/pan_dutch_oven.obj-7f85d933f9af1955b4d32f83dafd4461.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pan_dutch_oven.obj-7f85d933f9af1955b4d32f83dafd4461.mesh"]
+
+source_file="res://assets/modelos/Cooking Assets-zip/Dutch Oven/pan_dutch_oven.obj"
+dest_files=["res://.godot/imported/pan_dutch_oven.obj-7f85d933f9af1955b4d32f83dafd4461.mesh", "res://.godot/imported/pan_dutch_oven.obj-7f85d933f9af1955b4d32f83dafd4461.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

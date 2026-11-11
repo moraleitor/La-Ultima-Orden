@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://chxqi0315vlev"
+path="res://.godot/imported/cutensils_spatula_slotted.obj-0b83259314b2f3c80221a9de576aa17b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cutensils_spatula_slotted.obj-0b83259314b2f3c80221a9de576aa17b.mesh"]
+
+source_file="res://assets/modelos/Cooking Assets-zip/Spatula-7Dtbkkz9pe/cutensils_spatula_slotted.obj"
+dest_files=["res://.godot/imported/cutensils_spatula_slotted.obj-0b83259314b2f3c80221a9de576aa17b.mesh", "res://.godot/imported/cutensils_spatula_slotted.obj-0b83259314b2f3c80221a9de576aa17b.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

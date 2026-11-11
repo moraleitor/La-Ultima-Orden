@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ost0fqoja0qo"
+path="res://.godot/imported/pan_skillet.obj-a750752d300fe48a41b84325f6da1dfd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pan_skillet.obj-a750752d300fe48a41b84325f6da1dfd.mesh"]
+
+source_file="res://assets/modelos/Cooking Assets-zip/Pan Skillet/pan_skillet.obj"
+dest_files=["res://.godot/imported/pan_skillet.obj-a750752d300fe48a41b84325f6da1dfd.mesh", "res://.godot/imported/pan_skillet.obj-a750752d300fe48a41b84325f6da1dfd.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

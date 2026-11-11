@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b5ic0gacditph"
+path="res://.godot/imported/plate-rectangle.obj-2f594e8bd0450ad978d2bb1a78792811.mesh"
+
+[deps]
+
+files=["res://.godot/imported/plate-rectangle.obj-2f594e8bd0450ad978d2bb1a78792811.mesh"]
+
+source_file="res://assets/modelos/kenney_food-kit/Models/OBJ format/plate-rectangle.obj"
+dest_files=["res://.godot/imported/plate-rectangle.obj-2f594e8bd0450ad978d2bb1a78792811.mesh", "res://.godot/imported/plate-rectangle.obj-2f594e8bd0450ad978d2bb1a78792811.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

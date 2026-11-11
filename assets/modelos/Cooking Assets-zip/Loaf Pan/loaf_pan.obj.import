@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cdceu0q0w0hwn"
+path="res://.godot/imported/loaf_pan.obj-06e5900913ca1a345641312d0fac8dee.mesh"
+
+[deps]
+
+files=["res://.godot/imported/loaf_pan.obj-06e5900913ca1a345641312d0fac8dee.mesh"]
+
+source_file="res://assets/modelos/Cooking Assets-zip/Loaf Pan/loaf_pan.obj"
+dest_files=["res://.godot/imported/loaf_pan.obj-06e5900913ca1a345641312d0fac8dee.mesh", "res://.godot/imported/loaf_pan.obj-06e5900913ca1a345641312d0fac8dee.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

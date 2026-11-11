@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://kyp0nkf4wtux"
+path="res://.godot/imported/cocktail.obj-1d496e5b1a0e360c5438f3efc4cc690f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cocktail.obj-1d496e5b1a0e360c5438f3efc4cc690f.mesh"]
+
+source_file="res://assets/modelos/kenney_food-kit/Models/OBJ format/cocktail.obj"
+dest_files=["res://.godot/imported/cocktail.obj-1d496e5b1a0e360c5438f3efc4cc690f.mesh", "res://.godot/imported/cocktail.obj-1d496e5b1a0e360c5438f3efc4cc690f.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

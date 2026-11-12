@@ -1,36 +1,77 @@
+
 class_name Tabla
 extends Node3D
-## Tabla de corte (M3): un ingrediente, 2 s manteniendo clic izquierdo.
 
-var ingrediente: Ingrediente
+# Gabriela: corte de ingredientes durante 2 segundos.
+
+var ingrediente: Ingrediente = null
 var progreso := 0.0
 var bloqueada := false
 
+@onready var controlador: DragController = (
+	get_parent().get_node("DragController") as DragController
+)
+
 
 func _ready() -> void:
-	Events.entradas_bloqueadas.connect(func(b): bloqueada = b)
+	Events.entradas_bloqueadas.connect(_cambiar_bloqueo)
 	Events.intento_iniciado.connect(vaciar)
 
 
 func recibir(ing: Ingrediente) -> bool:
-	# Solo acepta un ingrediente crudo y solo si la tabla está vacía.
-	if bloqueada or ingrediente != null or ing.estado != Ingrediente.Estado.CRUDO:
+	# Solo permite un ingrediente crudo.
+	if bloqueada or ing == null:
 		return false
+
+	if ingrediente != null:
+		return false
+
+	if ing.estado != Ingrediente.Estado.CRUDO:
+		return false
+
 	ingrediente = ing
 	progreso = 0.0
+
+	# Colocar el ingrediente encima de la tabla.
+	ing.reparent(self, false)
+	ing.position = Vector3(0.0, 0.12, 0.0)
+
+	print("Tabla: recibido ", ing.nombre)
 	return true
 
 
-func _process(delta: float) -> void:
-	if bloqueada or ingrediente == null or ingrediente.estado != Ingrediente.Estado.CRUDO:
+func _physics_process(delta: float) -> void:
+	if bloqueada or ingrediente == null:
 		return
-	if Input.is_action_pressed("seleccionar") and _mouse_sobre_tabla():
+
+	if ingrediente.estado != Ingrediente.Estado.CRUDO:
+		return
+
+	# Cortar solo cuando la mira apunta a la tabla
+	# y no se está transportando otro ingrediente.
+	if Input.is_action_pressed("seleccionar") \
+	and controlador.arrastrando == null \
+	and controlador.estacion_apuntada() == self:
+
 		progreso += delta
+
 		if progreso >= Config.CORTE_SEGUNDOS:
-			ingrediente.set_estado(Ingrediente.Estado.CORTADO)
-			Events.ingrediente_cortado.emit(global_position)
+			progreso = Config.CORTE_SEGUNDOS
+
+			ingrediente.set_estado(
+				Ingrediente.Estado.CORTADO
+			)
+
+			Events.ingrediente_cortado.emit(
+				global_position
+			)
+
+			print("Tabla: ", ingrediente.nombre, " CORTADA.")
+
 	else:
-		progreso = 0.0     # soltar antes reinicia el progreso a cero
+		# Si suelta antes de 2 segundos,
+		# debe comenzar nuevamente.
+		progreso = 0.0
 
 
 func retirar() -> Ingrediente:
@@ -41,9 +82,14 @@ func retirar() -> Ingrediente:
 
 
 func vaciar() -> void:
+	if ingrediente != null and is_instance_valid(ingrediente):
+		ingrediente.queue_free()
+
 	ingrediente = null
 	progreso = 0.0
 
 
-func _mouse_sobre_tabla() -> bool:
-	return true     # TODO: raycast desde la cámara hasta esta tabla
+func _cambiar_bloqueo(valor: bool) -> void:
+	bloqueada = valor
+	if bloqueada:
+		progreso = 0.0

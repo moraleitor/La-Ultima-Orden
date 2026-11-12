@@ -80,6 +80,11 @@ func retirar() -> Ingrediente:
 	return ing
 
 
+
 func vaciar() -> void:
+	if ingrediente != null and is_instance_valid(ingrediente):
+		ingrediente.queue_free()
+
 	ingrediente = null
 	tiempo = 0.0
+	_aviso_listo = false

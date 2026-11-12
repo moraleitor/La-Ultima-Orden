@@ -1,56 +1,35 @@
-[gd_scene load_steps=54 format=3]
+[gd_scene format=3 uid="uid://bv1spx771ah4e"]
 
-[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Wood/Wood_13-512x512.png" id="e1"]
-[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Metal/Metal_17-512x512.png" id="e2"]
-[ext_resource type="Texture2D" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Metal/Metal_09-512x512.png" id="e3"]
-[ext_resource type="PackedScene" path="res://assets/modelos/Cooking Assets/GLB/Pans/pan_casserole_pot.glb" id="e4"]
-[ext_resource type="PackedScene" path="res://assets/modelos/Cooking Assets/GLB/Mixing Bowls/mbowl_mixing_bowl_001.glb" id="e5"]
+[ext_resource type="Texture2D" uid="uid://4p55c7lmw66s" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Wood/Wood_13-512x512.png" id="e1"]
+[ext_resource type="Texture2D" uid="uid://xg1qtbeb6cct" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Metal/Metal_17-512x512.png" id="e2"]
+[ext_resource type="Texture2D" uid="uid://bc17pdkml1no5" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Metal/Metal_09-512x512.png" id="e3"]
+[ext_resource type="PackedScene" uid="uid://c8ohs8o3xnumy" path="res://assets/modelos/Cooking Assets/GLB/Pans/pan_casserole_pot.glb" id="e4"]
+[ext_resource type="PackedScene" uid="uid://dr6v5exnn5t1p" path="res://assets/modelos/Cooking Assets/GLB/Mixing Bowls/mbowl_mixing_bowl_001.glb" id="e5"]
 [ext_resource type="PackedScene" path="res://scenes/ingredientes/papa.tscn" id="e6"]
-[ext_resource type="Script" path="res://scripts/cocina/fuente_ingredientes.gd" id="e7"]
-[ext_resource type="PackedScene" path="res://assets/modelos/kenney_food-kit/Models/GLB format/bowl.glb" id="e8"]
-[ext_resource type="PackedScene" path="res://assets/modelos/kenney_food-kit/Models/GLB format/beet.glb" id="e9"]
-[ext_resource type="Script" path="res://scripts/visual/tinte.gd" id="e10"]
+[ext_resource type="Script" uid="uid://bmrk0j4lt7uw4" path="res://scripts/cocina/fuente_ingredientes.gd" id="e7"]
+[ext_resource type="PackedScene" uid="uid://buv1ql8hc6qmi" path="res://assets/modelos/kenney_food-kit/Models/GLB format/bowl.glb" id="e8"]
+[ext_resource type="PackedScene" uid="uid://s253i5q6r37p" path="res://assets/modelos/kenney_food-kit/Models/GLB format/beet.glb" id="e9"]
+[ext_resource type="Script" uid="uid://bj36p3m1oqard" path="res://scripts/visual/tinte.gd" id="e10"]
 [ext_resource type="PackedScene" path="res://scenes/ingredientes/zanahoria.tscn" id="e11"]
-[ext_resource type="PackedScene" path="res://assets/modelos/kenney_food-kit/Models/GLB format/carrot.glb" id="e12"]
+[ext_resource type="PackedScene" uid="uid://dljnhs4q7ak40" path="res://assets/modelos/kenney_food-kit/Models/GLB format/carrot.glb" id="e12"]
 [ext_resource type="PackedScene" path="res://scenes/ingredientes/cebolla.tscn" id="e13"]
-[ext_resource type="PackedScene" path="res://assets/modelos/kenney_food-kit/Models/GLB format/onion.glb" id="e14"]
-[ext_resource type="Script" path="res://scripts/cocina/tabla.gd" id="e15"]
-[ext_resource type="PackedScene" path="res://assets/modelos/Cooking Assets/GLB/Boards/board_cutting_board_001.glb" id="e16"]
-[ext_resource type="PackedScene" path="res://assets/modelos/kenney_food-kit/Models/GLB format/cooking-knife.glb" id="e17"]
-[ext_resource type="Script" path="res://scripts/cocina/hornilla.gd" id="e18"]
-[ext_resource type="PackedScene" path="res://assets/modelos/Cooking Assets/GLB/Pans/pan_frying_pan_001.glb" id="e19"]
-[ext_resource type="Script" path="res://scripts/cocina/plato.gd" id="e20"]
-[ext_resource type="PackedScene" path="res://assets/modelos/Cooking Assets/GLB/Plates/plate_001.glb" id="e21"]
-[ext_resource type="Script" path="res://scripts/visual/papel_view.gd" id="e22"]
-[ext_resource type="Script" path="res://scripts/cocina/drag_controller.gd" id="e23"]
-[ext_resource type="Script" path="res://scripts/cocina/selector_papel.gd" id="e24"]
-[ext_resource type="PackedScene" path="res://assets/modelos/Cooking Assets/GLB/Misc/misc_kettle.glb" id="e25"]
-[ext_resource type="PackedScene" path="res://assets/modelos/kenney_food-kit/Models/GLB format/cooking-spoon.glb" id="e26"]
+[ext_resource type="PackedScene" uid="uid://u7wvsbv4ejc0" path="res://assets/modelos/kenney_food-kit/Models/GLB format/onion.glb" id="e14"]
+[ext_resource type="Script" uid="uid://dnrrd2240f36i" path="res://scripts/cocina/tabla.gd" id="e15"]
+[ext_resource type="PackedScene" uid="uid://cy57mw3e6grlg" path="res://assets/modelos/Cooking Assets/GLB/Boards/board_cutting_board_001.glb" id="e16"]
+[ext_resource type="PackedScene" uid="uid://bq3a2edplwk6" path="res://assets/modelos/kenney_food-kit/Models/GLB format/cooking-knife.glb" id="e17"]
+[ext_resource type="Script" uid="uid://lymc6duypw6a" path="res://scripts/cocina/hornilla.gd" id="e18"]
+[ext_resource type="PackedScene" uid="uid://hlkgsnggs4wa" path="res://assets/modelos/Cooking Assets/GLB/Pans/pan_frying_pan_001.glb" id="e19"]
+[ext_resource type="Script" uid="uid://c6vxqpco3ftr3" path="res://scripts/cocina/plato.gd" id="e20"]
+[ext_resource type="PackedScene" uid="uid://ffvtu1yrsy7k" path="res://assets/modelos/Cooking Assets/GLB/Plates/plate_001.glb" id="e21"]
+[ext_resource type="Script" uid="uid://do0sqoxx01dqu" path="res://scripts/visual/papel_view.gd" id="e22"]
+[ext_resource type="Script" uid="uid://d0hye6b1ptxdd" path="res://scripts/cocina/drag_controller.gd" id="e23"]
+[ext_resource type="Script" uid="uid://cg3rrnd2vytd7" path="res://scripts/cocina/selector_papel.gd" id="e24"]
+[ext_resource type="PackedScene" uid="uid://dsdag55p451ht" path="res://assets/modelos/Cooking Assets/GLB/Misc/misc_kettle.glb" id="e25"]
+[ext_resource type="PackedScene" uid="uid://butflx6qvjls5" path="res://assets/modelos/kenney_food-kit/Models/GLB format/cooking-spoon.glb" id="e26"]
 
 [sub_resource type="StandardMaterial3D" id="m1"]
+albedo_color = Color(0.5, 0.45, 0.38, 1)
 albedo_texture = ExtResource("e1")
-albedo_color = Color(0.500, 0.450, 0.380, 1.000)
-roughness = 1.00
-metallic_specular = 0.0
-uv1_scale = Vector3(0.8, 0.8, 0.8)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="m2"]
-albedo_texture = ExtResource("e2")
-albedo_color = Color(0.550, 0.570, 0.550, 1.000)
-roughness = 1.00
-metallic_specular = 0.0
-uv1_scale = Vector3(0.7, 0.7, 0.7)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="m3"]
-albedo_texture = ExtResource("e3")
-albedo_color = Color(0.420, 0.430, 0.420, 1.000)
-roughness = 1.00
 metallic_specular = 0.0
 uv1_scale = Vector3(0.8, 0.8, 0.8)
 uv1_triplanar = true
@@ -59,15 +38,33 @@ texture_filter = 0
 
 [sub_resource type="BoxMesh" id="s4"]
 material = SubResource("m1")
-size = Vector3(4.0, 0.08, 1.3)
+size = Vector3(4, 0.08, 1.3)
+
+[sub_resource type="StandardMaterial3D" id="m2"]
+albedo_color = Color(0.55, 0.57, 0.55, 1)
+albedo_texture = ExtResource("e2")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.7, 0.7, 0.7)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="s5"]
 material = SubResource("m2")
-size = Vector3(4.0, 0.08, 0.1)
+size = Vector3(4, 0.08, 0.1)
 
 [sub_resource type="BoxMesh" id="s6"]
 material = SubResource("m2")
-size = Vector3(0.08, 0.8200000000000001, 0.08)
+size = Vector3(0.08, 0.82, 0.08)
+
+[sub_resource type="StandardMaterial3D" id="m3"]
+albedo_color = Color(0.42, 0.43, 0.42, 1)
+albedo_texture = ExtResource("e3")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.8, 0.8, 0.8)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="s7"]
 material = SubResource("m3")
@@ -78,7 +75,7 @@ material = SubResource("m2")
 size = Vector3(3.8, 0.06, 0.06)
 
 [sub_resource type="BoxShape3D" id="h9"]
-size = Vector3(4.0, 0.9, 1.3)
+size = Vector3(4, 0.9, 1.3)
 
 [sub_resource type="BoxShape3D" id="h10"]
 size = Vector3(0.3, 0.16, 0.3)
@@ -93,11 +90,9 @@ size = Vector3(0.3, 0.16, 0.3)
 size = Vector3(0.44, 0.08, 0.28)
 
 [sub_resource type="StandardMaterial3D" id="m14"]
+albedo_color = Color(0.2, 0.2, 0.22, 1)
 albedo_texture = ExtResource("e2")
-albedo_color = Color(0.200, 0.200, 0.220, 1.000)
-roughness = 1.00
 metallic_specular = 0.0
-uv1_scale = Vector3(1, 1, 1)
 uv1_triplanar = true
 uv1_world_triplanar = true
 texture_filter = 0
@@ -107,12 +102,10 @@ material = SubResource("m14")
 size = Vector3(0.46, 0.08, 0.4)
 
 [sub_resource type="StandardMaterial3D" id="m16"]
-albedo_color = Color(0.250, 0.060, 0.040, 1.000)
-roughness = 1.00
+albedo_color = Color(0.25, 0.06, 0.04, 1)
 metallic_specular = 0.0
-texture_filter = 0
 emission_enabled = true
-emission = Color(0.000, 0.000, 0.000, 1)
+texture_filter = 0
 
 [sub_resource type="CylinderMesh" id="s17"]
 material = SubResource("m16")
@@ -128,21 +121,19 @@ size = Vector3(0.48, 0.2, 0.42)
 [sub_resource type="BoxShape3D" id="h19"]
 size = Vector3(0.36, 0.05, 0.36)
 
-[sub_resource type="StandardMaterial3D" id="m20"]
-albedo_color = Color(0.880, 0.850, 0.740, 1.000)
-roughness = 1.00
-metallic_specular = 0.0
-texture_filter = 0
-
 [sub_resource type="StandardMaterial3D" id="m21"]
-albedo_color = Color(0.700, 0.210, 0.180, 1.000)
-roughness = 1.00
+albedo_color = Color(0.7, 0.21, 0.18, 1)
 metallic_specular = 0.0
 texture_filter = 0
 
 [sub_resource type="BoxMesh" id="s22"]
 material = SubResource("m21")
 size = Vector3(0.19, 0.24, 0.004)
+
+[sub_resource type="StandardMaterial3D" id="m20"]
+albedo_color = Color(0.88, 0.85, 0.74, 1)
+metallic_specular = 0.0
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="s23"]
 material = SubResource("m20")
@@ -160,257 +151,248 @@ size = Vector3(0.19, 0.24, 0.05)
 [sub_resource type="BoxShape3D" id="h27"]
 size = Vector3(0.19, 0.24, 0.05)
 
-[node name="MesaCocina" type="Node3D"]
+[node name="MesaCocina" type="Node3D" unique_id=1487921981]
 
-[node name="Tablero" type="MeshInstance3D" parent="."]
+[node name="Tablero" type="MeshInstance3D" parent="." unique_id=1890355749]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86, 0)
 mesh = SubResource("s4")
 
-[node name="BordeFrente" type="MeshInstance3D" parent="."]
+[node name="BordeFrente" type="MeshInstance3D" parent="." unique_id=284137793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78, 0.6)
 mesh = SubResource("s5")
 
-[node name="BordeFondo" type="MeshInstance3D" parent="."]
+[node name="BordeFondo" type="MeshInstance3D" parent="." unique_id=774524536]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78, -0.6)
 mesh = SubResource("s5")
 
-[node name="Pata0" type="MeshInstance3D" parent="."]
+[node name="Pata0" type="MeshInstance3D" parent="." unique_id=1442529969]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 0.41, -0.55)
 mesh = SubResource("s6")
 
-[node name="Pata1" type="MeshInstance3D" parent="."]
+[node name="Pata1" type="MeshInstance3D" parent="." unique_id=1239220578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 0.41, -0.55)
 mesh = SubResource("s6")
 
-[node name="Pata2" type="MeshInstance3D" parent="."]
+[node name="Pata2" type="MeshInstance3D" parent="." unique_id=2118920898]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 0.41, 0.55)
 mesh = SubResource("s6")
 
-[node name="Pata3" type="MeshInstance3D" parent="."]
+[node name="Pata3" type="MeshInstance3D" parent="." unique_id=1354626801]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 0.41, 0.55)
 mesh = SubResource("s6")
 
-[node name="Entrepano" type="MeshInstance3D" parent="."]
+[node name="Entrepano" type="MeshInstance3D" parent="." unique_id=1810803146]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22, 0)
 mesh = SubResource("s7")
 
-[node name="TravesanoA" type="MeshInstance3D" parent="."]
+[node name="TravesanoA" type="MeshInstance3D" parent="." unique_id=444751011]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0.55)
 mesh = SubResource("s8")
 
-[node name="TravesanoB" type="MeshInstance3D" parent="."]
+[node name="TravesanoB" type="MeshInstance3D" parent="." unique_id=1075065930]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.55)
 mesh = SubResource("s8")
 
-[node name="Colision" type="StaticBody3D" parent="."]
+[node name="Colision" type="StaticBody3D" parent="." unique_id=1751538251]
 
-[node name="Forma" type="CollisionShape3D" parent="Colision"]
+[node name="Forma" type="CollisionShape3D" parent="Colision" unique_id=1180268341]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41, 0)
 shape = SubResource("h9")
 
-[node name="OllaDebajo" parent="." instance=ExtResource("e4")]
+[node name="OllaDebajo" parent="." unique_id=995679672 instance=ExtResource("e4")]
 transform = Transform3D(0.0564, 0, 0.0205, 0, 0.06, 0, -0.0205, 0, 0.0564, -1.2, 0.24, 0)
 
-[node name="TazonDebajo" parent="." instance=ExtResource("e5")]
+[node name="TazonDebajo" parent="." unique_id=395716936 instance=ExtResource("e5")]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0.6, 0.32, 0.1)
 
-[node name="FuentePapa" type="Node3D" parent="." groups=["fuente"]]
+[node name="FuentePapa" type="Node3D" parent="." unique_id=687812628 groups=["fuente"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45, 0.9, 0.2)
 script = ExtResource("e7")
-nombre_ingrediente = "papa"
 escena_ingrediente = ExtResource("e6")
 
-[node name="Recipiente" parent="FuentePapa" instance=ExtResource("e8")]
+[node name="Recipiente" parent="FuentePapa" unique_id=1020973360 instance=ExtResource("e8")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
 
-[node name="Muestra" parent="FuentePapa" instance=ExtResource("e9")]
+[node name="Muestra" parent="FuentePapa" unique_id=1153638141 instance=ExtResource("e9")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.045, 0)
 script = ExtResource("e10")
 color = Color(0.8, 0.62, 0.38, 1)
 
-[node name="Muestra2" parent="FuentePapa" instance=ExtResource("e9")]
+[node name="Muestra2" parent="FuentePapa" unique_id=1752239720 instance=ExtResource("e9")]
 transform = Transform3D(0.0513, -0.141, 0.2598, 0.2819, 0.1026, 0, -0.0889, 0.2441, 0.15, 0.05, 0.04, 0.03)
 script = ExtResource("e10")
 color = Color(0.8, 0.62, 0.38, 1)
 
-[node name="Colision" type="StaticBody3D" parent="FuentePapa"]
+[node name="Colision" type="StaticBody3D" parent="FuentePapa" unique_id=2089063100]
 
-[node name="Forma" type="CollisionShape3D" parent="FuentePapa/Colision"]
+[node name="Forma" type="CollisionShape3D" parent="FuentePapa/Colision" unique_id=858331761]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 shape = SubResource("h10")
 
-[node name="FuenteZanahoria" type="Node3D" parent="." groups=["fuente"]]
+[node name="FuenteZanahoria" type="Node3D" parent="." unique_id=244148730 groups=["fuente"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.9, 0.2)
 script = ExtResource("e7")
 nombre_ingrediente = "zanahoria"
 escena_ingrediente = ExtResource("e11")
 
-[node name="Recipiente" parent="FuenteZanahoria" instance=ExtResource("e8")]
+[node name="Recipiente" parent="FuenteZanahoria" unique_id=1868919535 instance=ExtResource("e8")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
 
-[node name="Muestra" parent="FuenteZanahoria" instance=ExtResource("e12")]
+[node name="Muestra" parent="FuenteZanahoria" unique_id=20739928 instance=ExtResource("e12")]
 transform = Transform3D(0.0776, -0.2898, 0, 0.2898, 0.0776, 0, 0, 0, 0.3, -0.03, 0.07, 0)
 
-[node name="Muestra2" parent="FuenteZanahoria" instance=ExtResource("e12")]
+[node name="Muestra2" parent="FuenteZanahoria" unique_id=684507532 instance=ExtResource("e12")]
 transform = Transform3D(0.0399, 0.2263, 0.1928, -0.2954, 0.0521, 0, -0.0335, -0.1899, 0.2298, 0.03, 0.075, 0.02)
 
-[node name="Colision" type="StaticBody3D" parent="FuenteZanahoria"]
+[node name="Colision" type="StaticBody3D" parent="FuenteZanahoria" unique_id=347580975]
 
-[node name="Forma" type="CollisionShape3D" parent="FuenteZanahoria/Colision"]
+[node name="Forma" type="CollisionShape3D" parent="FuenteZanahoria/Colision" unique_id=1644805636]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 shape = SubResource("h11")
 
-[node name="FuenteCebolla" type="Node3D" parent="." groups=["fuente"]]
+[node name="FuenteCebolla" type="Node3D" parent="." unique_id=1185566118 groups=["fuente"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.9, 0.2)
 script = ExtResource("e7")
 nombre_ingrediente = "cebolla"
 escena_ingrediente = ExtResource("e13")
 
-[node name="Recipiente" parent="FuenteCebolla" instance=ExtResource("e8")]
+[node name="Recipiente" parent="FuenteCebolla" unique_id=927347592 instance=ExtResource("e8")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
 
-[node name="Muestra" parent="FuenteCebolla" instance=ExtResource("e14")]
+[node name="Muestra" parent="FuenteCebolla" unique_id=661984938 instance=ExtResource("e14")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.05, 0)
 
-[node name="Muestra2" parent="FuenteCebolla" instance=ExtResource("e14")]
+[node name="Muestra2" parent="FuenteCebolla" unique_id=201173248 instance=ExtResource("e14")]
 transform = Transform3D(0.1197, 0, 0.3289, 0, 0.35, 0, -0.3289, 0, 0.1197, 0.06, 0.045, 0.03)
 
-[node name="Colision" type="StaticBody3D" parent="FuenteCebolla"]
+[node name="Colision" type="StaticBody3D" parent="FuenteCebolla" unique_id=534041789]
 
-[node name="Forma" type="CollisionShape3D" parent="FuenteCebolla/Colision"]
+[node name="Forma" type="CollisionShape3D" parent="FuenteCebolla/Colision" unique_id=89406502]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 shape = SubResource("h12")
 
-[node name="Tabla" type="Node3D" parent="." groups=["tabla"]]
+[node name="Tabla" type="Node3D" parent="." unique_id=1772411616 groups=["tabla"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.9, 0.2)
 script = ExtResource("e15")
 
-[node name="Madera" parent="Tabla" instance=ExtResource("e16")]
+[node name="Madera" parent="Tabla" unique_id=194341084 instance=ExtResource("e16")]
 transform = Transform3D(0.085, 0, 0, 0, 0.085, 0, 0, 0, 0.085, 0, 0.015, 0)
 
-[node name="Cuchillo" parent="Tabla" instance=ExtResource("e17")]
+[node name="Cuchillo" parent="Tabla" unique_id=991135423 instance=ExtResource("e17")]
 transform = Transform3D(0.4347, 0, -0.1165, 0, 0.45, 0, 0.1165, 0, 0.4347, 0.17, 0.035, 0.05)
 
-[node name="Colision" type="StaticBody3D" parent="Tabla"]
+[node name="Colision" type="StaticBody3D" parent="Tabla" unique_id=592813688]
 
-[node name="Forma" type="CollisionShape3D" parent="Tabla/Colision"]
+[node name="Forma" type="CollisionShape3D" parent="Tabla/Colision" unique_id=1631634598]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
 shape = SubResource("h13")
 
-[node name="Hornilla" type="Node3D" parent="." groups=["hornilla"]]
+[node name="Hornilla" type="Node3D" parent="." unique_id=964983180 groups=["hornilla"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.9, 0.2)
 script = ExtResource("e18")
 
-[node name="Cuerpo" type="MeshInstance3D" parent="Hornilla"]
+[node name="Cuerpo" type="MeshInstance3D" parent="Hornilla" unique_id=1639299141]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
 mesh = SubResource("s15")
 
-[node name="Quemador" type="MeshInstance3D" parent="Hornilla"]
+[node name="Quemador" type="MeshInstance3D" parent="Hornilla" unique_id=731832701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.085, 0)
 mesh = SubResource("s17")
 
-[node name="Sarten" parent="Hornilla" instance=ExtResource("e19")]
+[node name="Sarten" parent="Hornilla" unique_id=1273116203 instance=ExtResource("e19")]
 transform = Transform3D(0, 0, 0.045, 0, 0.045, 0, -0.045, 0, 0, 0, 0.1, 0)
 
-[node name="Colision" type="StaticBody3D" parent="Hornilla"]
+[node name="Colision" type="StaticBody3D" parent="Hornilla" unique_id=354357268]
 
-[node name="Forma" type="CollisionShape3D" parent="Hornilla/Colision"]
+[node name="Forma" type="CollisionShape3D" parent="Hornilla/Colision" unique_id=1429909402]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 shape = SubResource("h18")
 
-[node name="Plato" type="Node3D" parent="." groups=["plato"]]
+[node name="Plato" type="Node3D" parent="." unique_id=1811890057 groups=["plato"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0.9, 0.2)
 script = ExtResource("e20")
 
-[node name="Loza" parent="Plato" instance=ExtResource("e21")]
+[node name="Loza" parent="Plato" unique_id=32541523 instance=ExtResource("e21")]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0.015, 0)
 
-[node name="Colision" type="StaticBody3D" parent="Plato"]
+[node name="Colision" type="StaticBody3D" parent="Plato" unique_id=824916952]
 
-[node name="Forma" type="CollisionShape3D" parent="Plato/Colision"]
+[node name="Forma" type="CollisionShape3D" parent="Plato/Colision" unique_id=1354293272]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
 shape = SubResource("h19")
 
-[node name="Papel1" type="Node3D" parent="." groups=["papel"]]
+[node name="Papel1" type="Node3D" parent="." unique_id=1986671381 groups=["papel"]]
 transform = Transform3D(1, 0, 0, 0, 0.309, 0.9511, 0, -0.9511, 0.309, -1.35, 0.95, -0.38)
 script = ExtResource("e22")
 
-[node name="Borde" type="MeshInstance3D" parent="Papel1"]
+[node name="Borde" type="MeshInstance3D" parent="Papel1" unique_id=873604182]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.004)
 mesh = SubResource("s22")
 
-[node name="Hoja" type="MeshInstance3D" parent="Papel1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Hoja" type="MeshInstance3D" parent="Papel1" unique_id=1932692809]
 mesh = SubResource("s23")
 
-[node name="Colision" type="StaticBody3D" parent="Papel1"]
+[node name="Colision" type="StaticBody3D" parent="Papel1" unique_id=2132036394]
 
-[node name="Forma" type="CollisionShape3D" parent="Papel1/Colision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Forma" type="CollisionShape3D" parent="Papel1/Colision" unique_id=1132128540]
 shape = SubResource("h24")
 
-[node name="Papel2" type="Node3D" parent="." groups=["papel"]]
+[node name="Papel2" type="Node3D" parent="." unique_id=445130327 groups=["papel"]]
 transform = Transform3D(1, 0, 0, 0, 0.309, 0.9511, 0, -0.9511, 0.309, -0.45, 0.95, -0.38)
 script = ExtResource("e22")
 
-[node name="Borde" type="MeshInstance3D" parent="Papel2"]
+[node name="Borde" type="MeshInstance3D" parent="Papel2" unique_id=465725562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.004)
 mesh = SubResource("s22")
 
-[node name="Hoja" type="MeshInstance3D" parent="Papel2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Hoja" type="MeshInstance3D" parent="Papel2" unique_id=2134372290]
 mesh = SubResource("s23")
 
-[node name="Colision" type="StaticBody3D" parent="Papel2"]
+[node name="Colision" type="StaticBody3D" parent="Papel2" unique_id=1238582933]
 
-[node name="Forma" type="CollisionShape3D" parent="Papel2/Colision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Forma" type="CollisionShape3D" parent="Papel2/Colision" unique_id=396417310]
 shape = SubResource("h25")
 
-[node name="Papel3" type="Node3D" parent="." groups=["papel"]]
+[node name="Papel3" type="Node3D" parent="." unique_id=1785683862 groups=["papel"]]
 transform = Transform3D(1, 0, 0, 0, 0.309, 0.9511, 0, -0.9511, 0.309, 0.45, 0.95, -0.38)
 script = ExtResource("e22")
 
-[node name="Borde" type="MeshInstance3D" parent="Papel3"]
+[node name="Borde" type="MeshInstance3D" parent="Papel3" unique_id=1649867796]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.004)
 mesh = SubResource("s22")
 
-[node name="Hoja" type="MeshInstance3D" parent="Papel3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Hoja" type="MeshInstance3D" parent="Papel3" unique_id=151675684]
 mesh = SubResource("s23")
 
-[node name="Colision" type="StaticBody3D" parent="Papel3"]
+[node name="Colision" type="StaticBody3D" parent="Papel3" unique_id=2054517167]
 
-[node name="Forma" type="CollisionShape3D" parent="Papel3/Colision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Forma" type="CollisionShape3D" parent="Papel3/Colision" unique_id=1604179203]
 shape = SubResource("h26")
 
-[node name="Papel4" type="Node3D" parent="." groups=["papel"]]
+[node name="Papel4" type="Node3D" parent="." unique_id=1661302499 groups=["papel"]]
 transform = Transform3D(1, 0, 0, 0, 0.309, 0.9511, 0, -0.9511, 0.309, 1.35, 0.95, -0.38)
 script = ExtResource("e22")
 
-[node name="Borde" type="MeshInstance3D" parent="Papel4"]
+[node name="Borde" type="MeshInstance3D" parent="Papel4" unique_id=127034646]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.004)
 mesh = SubResource("s22")
 
-[node name="Hoja" type="MeshInstance3D" parent="Papel4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Hoja" type="MeshInstance3D" parent="Papel4" unique_id=428794750]
 mesh = SubResource("s23")
 
-[node name="Colision" type="StaticBody3D" parent="Papel4"]
+[node name="Colision" type="StaticBody3D" parent="Papel4" unique_id=137404947]
 
-[node name="Forma" type="CollisionShape3D" parent="Papel4/Colision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Forma" type="CollisionShape3D" parent="Papel4/Colision" unique_id=1428601442]
 shape = SubResource("h27")
 
-[node name="DragController" type="Node3D" parent="."]
+[node name="DragController" type="Node3D" parent="." unique_id=1879031341]
 script = ExtResource("e23")
 
-[node name="SelectorPapel" type="Node" parent="."]
+[node name="SelectorPapel" type="Node" parent="." unique_id=136471013]
 script = ExtResource("e24")
 
-[node name="Tetera" parent="." instance=ExtResource("e25")]
+[node name="Tetera" parent="." unique_id=1078438655 instance=ExtResource("e25")]
 transform = Transform3D(0.0321, 0, 0.0383, 0, 0.05, 0, -0.0383, 0, 0.0321, -1.8, 0.9, -0.35)
 
-[node name="Cuchara" parent="." instance=ExtResource("e26")]
+[node name="Cuchara" parent="." unique_id=1756548101 instance=ExtResource("e26")]
 transform = Transform3D(-0.0781, 0, 0.4432, 0, 0.45, 0, -0.4432, 0, -0.0781, 1.8, 0.91, 0.35)

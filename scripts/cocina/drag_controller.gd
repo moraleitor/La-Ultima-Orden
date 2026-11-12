@@ -16,6 +16,7 @@ var arrastrando_plato := false
 @onready var tabla: Tabla = get_parent().get_node("Tabla") as Tabla
 @onready var hornilla: Hornilla = get_parent().get_node("Hornilla") as Hornilla
 @onready var plato: Plato = get_parent().get_node("Plato") as Plato
+@onready var selector_papel: SelectorPapel = get_parent().get_node("SelectorPapel") as SelectorPapel
 @onready var transform_original_plato: Transform3D = plato.transform
 
 
@@ -44,6 +45,10 @@ func _physics_process(_delta: float) -> void:
 			- camara.global_transform.basis.y * 0.15
 		)
 
+	# Consultar un papel detiene solo las manipulaciones, no los relojes.
+	if not selector_papel.puede_manipular_comida():
+		return
+
 	# Clic derecho: desechar ingrediente o vaciar el plato.
 	if Input.is_action_just_pressed("descartar"):
 		_descartar()
@@ -51,6 +56,11 @@ func _physics_process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("seleccionar"):
 		if arrastrando == null and not arrastrando_plato:
+			# El papel se selecciona sin tomar ni mover ingredientes.
+			var objetivo := estacion_apuntada()
+			if objetivo is PapelView:
+				selector_papel.seleccionar_papel(objetivo as PapelView)
+				return
 			_comenzar_arrastre()
 
 	if Input.is_action_just_released("seleccionar"):
@@ -92,7 +102,7 @@ func estacion_apuntada() -> Node3D:
 				break
 
 			if (nodo is FuenteIngredientes or nodo is Tabla
-					or nodo is Hornilla or nodo is Plato):
+					or nodo is Hornilla or nodo is Plato or nodo is PapelView):
 				return nodo as Node3D
 
 			nodo = nodo.get_parent()
@@ -277,6 +287,8 @@ func _descartar() -> void:
 		# vaciar() libera la estacion y reinicia su temporizador;
 		# en el proyecto original no libera el nodo del ingrediente.
 		hornilla.vaciar()
+		if is_instance_valid(ing_hornilla) and not ing_hornilla.is_queued_for_deletion():
+			ing_hornilla.queue_free()
 		Events.ingrediente_descartado.emit()
 		print("Gabriela: ingrediente descartado; hornilla libre.")
 		return

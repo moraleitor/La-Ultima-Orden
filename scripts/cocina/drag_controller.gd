@@ -44,6 +44,11 @@ func _physics_process(_delta: float) -> void:
 			- camara.global_transform.basis.y * 0.15
 		)
 
+	# Clic derecho: desechar ingrediente o vaciar el plato.
+	if Input.is_action_just_pressed("descartar"):
+		_descartar()
+		return
+
 	if Input.is_action_just_pressed("seleccionar"):
 		if arrastrando == null and not arrastrando_plato:
 			_comenzar_arrastre()
@@ -186,6 +191,7 @@ func _soltar_ingrediente() -> void:
 			arrastrando.reparent(plato, false)
 			var indice := plato.contenido.size() - 1
 			arrastrando.position = Vector3(-0.07 + indice * 0.14, 0.06, 0.0)
+			print("PLATO ACTUAL: ", plato.nombres())
 
 	if aceptado:
 		print("Gabriela: transferencia correcta.")
@@ -234,6 +240,69 @@ func _devolver_plato() -> void:
 		return
 	plato.transform = transform_original_plato
 	arrastrando_plato = false
+
+
+func _descartar() -> void:
+	# 1. Si estamos transportando el plato, vaciarlo y devolverlo.
+	if arrastrando_plato:
+		var cantidad: int = plato.contenido.size()
+		plato.vaciar()
+		_devolver_plato()
+		for _i in range(cantidad):
+			Events.ingrediente_descartado.emit()
+		print("Gabriela: plato descartado; ingredientes: ", cantidad)
+		return
+
+	# 2. Si tenemos un ingrediente en la mano, desecharlo.
+	if arrastrando != null and is_instance_valid(arrastrando):
+		var ing: Ingrediente = arrastrando
+		if origen == tabla:
+			tabla.retirar()  # Limpiar la referencia de la tabla.
+		ing.queue_free()
+		arrastrando = null
+		origen = null
+		tiempo_al_retirar = 0.0
+		Events.ingrediente_descartado.emit()
+		print("Gabriela: descartaste el ingrediente que llevabas.")
+		return
+
+	# 3. Si no llevamos nada, descartar lo que apunta la mira.
+	var objetivo: Node3D = estacion_apuntada()
+
+	if objetivo == hornilla:
+		var ing_hornilla: Ingrediente = hornilla.ingrediente
+		if ing_hornilla == null or not is_instance_valid(ing_hornilla):
+			print("Gabriela: la hornilla esta vacia.")
+			return
+		# vaciar() libera la estacion y reinicia su temporizador;
+		# en el proyecto original no libera el nodo del ingrediente.
+		hornilla.vaciar()
+		Events.ingrediente_descartado.emit()
+		print("Gabriela: ingrediente descartado; hornilla libre.")
+		return
+
+	if objetivo == tabla:
+		var ing_tabla: Ingrediente = tabla.retirar()
+		if ing_tabla == null or not is_instance_valid(ing_tabla):
+			print("Gabriela: la tabla esta vacia.")
+			return
+		ing_tabla.queue_free()
+		Events.ingrediente_descartado.emit()
+		print("Gabriela: ingrediente descartado; tabla libre.")
+		return
+
+	if objetivo == plato:
+		var cantidad_plato: int = plato.contenido.size()
+		if cantidad_plato == 0:
+			print("Gabriela: el plato esta vacio.")
+			return
+		plato.vaciar()
+		for _j in range(cantidad_plato):
+			Events.ingrediente_descartado.emit()
+		print("Gabriela: vaciaste el plato; ingredientes: ", cantidad_plato)
+		return
+
+	print("Gabriela: apunta a la tabla, hornilla o plato para descartar.")
 
 
 func _resultado_entrega(indice: int, correcto: bool) -> void:

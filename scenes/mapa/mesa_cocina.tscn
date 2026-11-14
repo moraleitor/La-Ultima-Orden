@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bv1spx771ah4e"]
 
+[ext_resource type="Script" uid="uid://ckuvo7ccn6jo0" path="res://scripts/visual/indicador_corte.gd" id="18_rv1yf"]
+[ext_resource type="Script" uid="uid://dcy6xvqrt5kud" path="res://scripts/visual/indicador_hornilla.gd" id="20_0hoep"]
 [ext_resource type="Texture2D" uid="uid://4p55c7lmw66s" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Wood/Wood_13-512x512.png" id="e1"]
 [ext_resource type="Texture2D" uid="uid://xg1qtbeb6cct" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Metal/Metal_17-512x512.png" id="e2"]
 [ext_resource type="Texture2D" uid="uid://bc17pdkml1no5" path="res://assets/modelos/SBS_-_Tiny_Texture_Pack_2_-_512x512/512x512/Metal/Metal_09-512x512.png" id="e3"]
@@ -287,6 +289,11 @@ transform = Transform3D(0.4347, 0, -0.1165, 0, 0.45, 0, 0.1165, 0, 0.4347, 0.17,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
 shape = SubResource("h13")
 
+[node name="IndicadorCorte" type="Label3D" parent="Tabla" unique_id=1990576378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+font_size = 10
+script = ExtResource("18_rv1yf")
+
 [node name="Hornilla" type="Node3D" parent="." unique_id=964983180 groups=["hornilla"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.9, 0.2)
 script = ExtResource("e18")
@@ -307,6 +314,11 @@ transform = Transform3D(0, 0, 0.045, 0, 0.045, 0, -0.045, 0, 0, 0, 0.1, 0)
 [node name="Forma" type="CollisionShape3D" parent="Hornilla/Colision" unique_id=1429909402]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 shape = SubResource("h18")
+
+[node name="IndicadorHornilla" type="Label3D" parent="Hornilla" unique_id=269524989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+font_size = 10
+script = ExtResource("20_0hoep")
 
 [node name="Plato" type="Node3D" parent="." unique_id=1811890057 groups=["plato"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0.9, 0.2)

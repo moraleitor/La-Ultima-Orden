@@ -23,6 +23,7 @@ signal todos_pedidos_cerrados
 
 # --- Tensión y luz (Felipe) ---
 signal tension_cambio(nivel: int)
+signal vidas_cambio(vidas: int, perdida: bool)   # corazones que quedan (3 menos la tensión)
 signal racha_cambio(racha: int)
 signal luz_recuperada
 

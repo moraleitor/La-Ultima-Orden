@@ -30,6 +30,7 @@ const CAPACIDAD_PLATO := 2
 
 # Tensión (M8 a M10)
 const TENSION_MAX := 3
+const VIDAS_MAX := 3              # corazones: cada uno equivale a un nivel de tensión
 const RACHA_PARA_RECUPERAR := 4
 const APAGON_SEGUNDOS := 3.0
 const AMANECER_SEGUNDOS := 5.0

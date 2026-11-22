@@ -5,13 +5,19 @@ extends Node3D
 
 const FONDO := Vector3(0.0, 0.0, -14.0)
 const FRENTE := Vector3(0.0, 0.0, -1.7)
-const CORRIDA := 0.85     # s; llega antes de que la pantalla se ponga negra (1,4 s)
+const CORRIDA := 0.85     # s; tiempo que tarda en llegar corriendo hasta la mesa
+const SALTO := 0.2        # s; el salto final encima del jugador
+const MORDIDAS := 3
 const FPS_PS1 := 12.0     # las poses cambian a saltos, como en los juegos de PS1
 
 var _tween: Tween
 var _corriendo := false
 var _t := 0.0
 var _paso := 0.0
+var _atacando := false
+var _apertura := 0.7      # 0 boca cerrada, 1 boca muy abierta (solo mientras ataca)
+var _sacudida := 0.0
+var _rojo: ColorRect
 
 @onready var _modelo: Node3D = $Modelo
 @onready var _cuerpo: Node3D = _modelo.find_child("Cadera", true, false)
@@ -32,6 +38,14 @@ func _ready() -> void:
 		_hombros_base.append(h.rotation.x)
 	for p in _piernas:
 		_piernas_base.append(p.rotation.x)
+	var capa := CanvasLayer.new()
+	capa.layer = 5
+	add_child(capa)
+	_rojo = ColorRect.new()
+	_rojo.color = Color(0.6, 0.0, 0.02, 0.0)
+	_rojo.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_rojo.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	capa.add_child(_rojo)
 	_esconder()
 	Events.apagon_iniciado.connect(_on_apagon)
 	Events.amanecer_iniciado.connect(_esconder)
@@ -42,19 +56,23 @@ func _process(delta: float) -> void:
 	if not visible:
 		return
 	_t += delta
+	_agitar_camara()
 	# Solo se actualiza la pose 12 veces por segundo.
 	_paso += delta
 	if _paso < 1.0 / FPS_PS1:
 		return
 	_paso = 0.0
-	var vel := 16.0 if _corriendo else 5.0
+	var vel := 22.0 if _atacando else (16.0 if _corriendo else 5.0)
 	var s := sin(_t * vel)
-	# Mandíbula que castañea, más abierta mientras corre.
-	_mandibula.rotation.x = _mandibula_base + (0.25 if _corriendo else 0.1) * (0.5 + 0.5 * sin(_t * vel * 1.7))
+	# Mandíbula que castañea, más abierta mientras corre. Al atacar la controla la mordida.
+	if _atacando:
+		_mandibula.rotation.x = lerpf(0.0, 1.35, _apertura)
+	else:
+		_mandibula.rotation.x = _mandibula_base + (0.25 if _corriendo else 0.1) * (0.5 + 0.5 * sin(_t * vel * 1.7))
 	# Brazos y piernas.
 	for i in 2:
 		var fase := s if i == 0 else -s
-		_hombros[i].rotation.x = _hombros_base[i] + fase * (0.9 if _corriendo else 0.15)
+		_hombros[i].rotation.x = _hombros_base[i] + fase * (0.9 if (_corriendo or _atacando) else 0.15)
 		_codos[i].rotation.x = -absf(fase) * (0.5 if _corriendo else 0.1)
 		_piernas[i].rotation.x = _piernas_base[i] - fase * (0.7 if _corriendo else 0.05)
 	# Cuerpo y cabeza: balanceo y tics.
@@ -70,13 +88,59 @@ func _on_apagon() -> void:
 	_corriendo = true
 	_tween = create_tween()
 	_tween.tween_property(self, "position", FRENTE, CORRIDA).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	_tween.tween_callback(func(): _corriendo = false)
+	_tween.tween_callback(_saltar_y_morder)
+
+
+func _saltar_y_morder() -> void:
+	# Salta encima del jugador hasta dejar la boca delante de la cámara y muerde varias veces.
+	_corriendo = false
+	_atacando = true
+	_apertura = 1.0
+	var cam := get_viewport().get_camera_3d()
+	var destino := position
+	if cam:
+		# La boca queda justo delante de la cámara: el jugador la ve abrirse y cerrarse encima de él.
+		var boca := _cabeza.to_global(Vector3(0.0, -0.22, 0.42))
+		destino = position + (cam.global_position - cam.global_transform.basis.z * 0.32 - boca)
+	_tween = create_tween()
+	_tween.tween_property(self, "position", destino, SALTO).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+	for i in MORDIDAS:
+		_tween.tween_property(self, "_apertura", 0.0, 0.08)    # la boca se cierra de golpe
+		_tween.tween_callback(_mordisco)
+		if i < MORDIDAS - 1:
+			_tween.tween_property(self, "_apertura", 0.85, 0.12)
+		else:
+			_tween.tween_interval(0.25)
+	_tween.tween_property(_rojo, "color:a", 0.0, 0.15)
+
+
+func _mordisco() -> void:
+	_sacudida = 1.0
+	_rojo.color.a = 0.55
+	create_tween().tween_property(_rojo, "color:a", 0.25, 0.1)
+	create_tween().tween_property(self, "_sacudida", 0.35, 0.2)
+
+
+func _agitar_camara() -> void:
+	var cam := get_viewport().get_camera_3d()
+	if cam and _sacudida > 0.0:
+		cam.h_offset = randf_range(-1.0, 1.0) * _sacudida * 0.12
+		cam.v_offset = randf_range(-1.0, 1.0) * _sacudida * 0.12
 
 
 func _esconder() -> void:
 	if _tween:
 		_tween.kill()
 	_corriendo = false
+	_atacando = false
+	_sacudida = 0.0
+	_apertura = 0.7
+	var cam := get_viewport().get_camera_3d()
+	if cam:
+		cam.h_offset = 0.0
+		cam.v_offset = 0.0
+	if _rojo:
+		_rojo.color.a = 0.0
 	visible = false
 	position = FONDO
 

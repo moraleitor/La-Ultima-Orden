@@ -20,6 +20,9 @@ var _dedos_base: Array[Quaternion] = []
 var _pos_brazos: Vector3
 var _agarre := 0.0            # 0 mano abierta, 1 agarrando
 var _tween: Tween
+var _mirada_forzada := false     # durante el screamer el jugador no controla la cabeza
+var _tween_mirada: Tween
+var _pitch_inicial := 0.0
 
 # Variables relacionadas a la pose de corte (brazos, malla modelo y posiciones) para volver al agarre normal al soltar el clic.
 var _reposo_brazos: Transform3D
@@ -45,10 +48,13 @@ func _ready() -> void:
 	_reposo_brazos = brazos.transform
 	_pos_brazos = brazos.position
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	_pitch_inicial = camara.rotation.x
+	Events.apagon_iniciado.connect(_mirar_screamer)
+	Events.intento_iniciado.connect(_recuperar_mirada)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and not _mirada_forzada:
 		rotation.y = clampf(rotation.y - event.relative.x * SENSIBILIDAD, -YAW_MAX, YAW_MAX)
 		camara.rotation.x = clampf(camara.rotation.x - event.relative.y * SENSIBILIDAD, PITCH_MIN, PITCH_MAX)
 	elif event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
@@ -294,3 +300,22 @@ func _pintar_brazos() -> void:
 	mat.emission_energy_multiplier = 0.45
 	for m in brazos.find_children("*", "MeshInstance3D", true, false):
 		(m as MeshInstance3D).material_override = mat
+
+
+func _mirar_screamer() -> void:
+	# La cabeza se levanta hacia el fondo para ver al screamer de frente.
+	_mirada_forzada = true
+	_soltar()
+	if _tween_mirada:
+		_tween_mirada.kill()
+	_tween_mirada = create_tween().set_parallel(true).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	_tween_mirada.tween_property(camara, "rotation:x", deg_to_rad(-4.0), 0.45)
+	_tween_mirada.tween_property(self, "rotation:y", 0.0, 0.45)
+
+
+func _recuperar_mirada() -> void:
+	_mirada_forzada = false
+	if _tween_mirada:
+		_tween_mirada.kill()
+	camara.rotation.x = _pitch_inicial
+	rotation.y = 0.0

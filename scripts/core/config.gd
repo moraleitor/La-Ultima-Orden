@@ -71,3 +71,6 @@ func _accion_mouse(nombre: String, boton: MouseButton) -> void:
 	var ev := InputEventMouseButton.new()
 	ev.button_index = boton
 	InputMap.action_add_event(nombre, ev)
+
+# Lo que dura el screamer (corre, salta encima y muerde) antes de que la pantalla se ponga negra.
+const SCREAMER_DURACION := 2.0

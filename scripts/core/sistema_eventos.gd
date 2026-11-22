@@ -302,10 +302,10 @@ func _iniciar_apagon() -> void:
 func _actualizar_apagon(delta: float) -> void:
 	_tiempo_apagon += delta
 
-	# El screamer original corre durante 1.4 s.
-	# Esperamos antes de taparlo por completo.
+	# El screamer corre y muerde durante Config.SCREAMER_DURACION.
+	# Esperamos a que termine antes de taparlo por completo.
 	var opacidad := clampf(
-		(_tiempo_apagon - 1.4) / 0.35,
+		(_tiempo_apagon - Config.SCREAMER_DURACION) / 0.35,
 		0.0,
 		1.0
 	)
@@ -316,7 +316,7 @@ func _actualizar_apagon(delta: float) -> void:
 		)
 
 	if mensaje_apagon != null:
-		mensaje_apagon.visible = _tiempo_apagon >= 1.75
+		mensaje_apagon.visible = _tiempo_apagon >= Config.SCREAMER_DURACION + 0.35
 
 
 func _terminar_destellos() -> void:

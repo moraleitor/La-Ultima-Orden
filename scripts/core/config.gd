@@ -30,9 +30,16 @@ const CAPACIDAD_PLATO := 2
 
 # Tensión (M8 a M10)
 const TENSION_MAX := 3
+const VIDAS_MAX := 3              # corazones: cada uno equivale a un nivel de tensión
 const RACHA_PARA_RECUPERAR := 4
 const APAGON_SEGUNDOS := 3.0
 const AMANECER_SEGUNDOS := 5.0
+
+# Reloj del turno: de 8 PM a 6 AM en unos 5 minutos y medio reales.
+# El último cliente llega a los 270 s y tiene 45 s de plazo, así que a los 320 s ya no queda nadie.
+const TURNO_SEGUNDOS := 320.0
+const HORA_INICIO := 20           # 8 PM
+const HORAS_TURNO := 10           # hasta las 6 AM
 
 # Luz (sección 9). Índice = nivel de tensión 0, 1, 2.
 const LUZ_POR_NIVEL := [1.0, 0.75, 0.5]
@@ -70,3 +77,6 @@ func _accion_mouse(nombre: String, boton: MouseButton) -> void:
 	var ev := InputEventMouseButton.new()
 	ev.button_index = boton
 	InputMap.action_add_event(nombre, ev)
+
+# Lo que dura el screamer (corre, salta encima y muerde) antes de que la pantalla se ponga negra.
+const SCREAMER_DURACION := 2.0

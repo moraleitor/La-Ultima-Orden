@@ -19,6 +19,7 @@ func _reiniciar() -> void:
 	racha = 0
 	_recuperacion_pendiente = -1
 	Events.tension_cambio.emit(tension)
+	Events.vidas_cambio.emit(Config.VIDAS_MAX - tension, false)
 	Events.racha_cambio.emit(racha)
 
 
@@ -40,6 +41,7 @@ func _on_error() -> void:
 	_recuperacion_pendiente = -1    # un error antes de que termine la reacción la cancela
 	Events.racha_cambio.emit(racha)
 	Events.tension_cambio.emit(tension)
+	Events.vidas_cambio.emit(Config.VIDAS_MAX - tension, true)
 
 
 func _on_reaccion_terminada(indice: int, _correcto: bool) -> void:
@@ -49,4 +51,5 @@ func _on_reaccion_terminada(indice: int, _correcto: bool) -> void:
 	if tension > 0:
 		tension -= 1
 		Events.tension_cambio.emit(tension)
+		Events.vidas_cambio.emit(Config.VIDAS_MAX - tension, false)
 		Events.luz_recuperada.emit()

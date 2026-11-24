@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" path="res://scenes/cliente/cliente.tscn" id="e4"]
 [ext_resource type="PackedScene" path="res://scenes/screamer/screamer.tscn" id="e5"]
 [ext_resource type="PackedScene" path="res://scenes/zonas/luces_clientes.tscn" id="e6"]
+[ext_resource type="PackedScene" path="res://scenes/ui/vidas_hud.tscn" id="vidas1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/reloj_hud.tscn" id="reloj1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/victoria_hud.tscn" id="victoria1"]
 
 [node name="Main" type="Node3D" unique_id=731949950]
 script = ExtResource("e1")
@@ -44,6 +47,12 @@ light_energy = 1.2
 shadow_enabled = true
 omni_range = 6.0
 script = ExtResource("7_o6xl0")
+
+[node name="VidasHud" parent="." instance=ExtResource("vidas1")]
+
+[node name="RelojHud" parent="." instance=ExtResource("reloj1")]
+
+[node name="VictoriaHud" parent="." instance=ExtResource("victoria1")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=108869114]
 

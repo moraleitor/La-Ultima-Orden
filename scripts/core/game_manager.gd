@@ -12,7 +12,6 @@ var _tiempo_estado := 0.0
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS   # sigue escuchando Esc aunque el árbol esté en pausa
 	Events.tension_cambio.connect(_on_tension_cambio)
-	Events.todos_pedidos_cerrados.connect(_on_todos_cerrados)
 	iniciar_intento(true)
 
 
@@ -21,6 +20,7 @@ func iniciar_intento(con_intro: bool) -> void:
 	# directo al cliente 1, sin repetirla.
 	tension = 0
 	_tiempo_estado = 0.0
+	Events.reloj_cambio.emit(0.0)
 	Events.entradas_bloqueadas.emit(false)
 	Events.intento_iniciado.emit()
 	if con_intro:
@@ -37,6 +37,12 @@ func _process(delta: float) -> void:
 		Estado.INTRO:
 			if _tiempo_estado >= Config.INTRO_SEGUNDOS:
 				_empezar_turno()
+		Estado.JUGANDO:
+			# El turno dura de 8 PM a 6 AM; sobrevivir hasta las 6 es la victoria.
+			var progreso := clampf(_tiempo_estado / Config.TURNO_SEGUNDOS, 0.0, 1.0)
+			Events.reloj_cambio.emit(progreso)
+			if progreso >= 1.0:
+				_amanecer()
 		Estado.APAGON:
 			if _tiempo_estado >= Config.APAGON_SEGUNDOS:
 				iniciar_intento(false)
@@ -69,7 +75,7 @@ func _on_tension_cambio(nivel: int) -> void:
 		Events.apagon_iniciado.emit()
 
 
-func _on_todos_cerrados() -> void:
+func _amanecer() -> void:
 	if estado == Estado.JUGANDO and tension < Config.TENSION_MAX:
 		estado = Estado.AMANECER
 		_tiempo_estado = 0.0

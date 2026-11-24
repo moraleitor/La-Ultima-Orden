@@ -7,7 +7,8 @@ extends Node
 signal intento_iniciado                       # se reinició todo; limpiar estado
 signal turno_iniciado                         # termina la introducción; t = 0
 signal apagon_iniciado                        # tensión llegó a 3
-signal amanecer_iniciado                      # victoria
+signal amanecer_iniciado                      # victoria: llegaron las 6 AM con vidas
+signal reloj_cambio(progreso: float)          # 0 = 8 PM, 1 = 6 AM; cada frame del turno
 signal pausa_cambiada(en_pausa: bool)
 signal entradas_bloqueadas(bloqueadas: bool)  # durante apagón y amanecer
 
@@ -23,6 +24,7 @@ signal todos_pedidos_cerrados
 
 # --- Tensión y luz (Felipe) ---
 signal tension_cambio(nivel: int)
+signal vidas_cambio(vidas: int, perdida: bool)   # corazones que quedan (3 menos la tensión)
 signal racha_cambio(racha: int)
 signal luz_recuperada
 

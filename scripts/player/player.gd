@@ -35,12 +35,29 @@ var _mango_en_mano: Transform3D
 var _pose_corte_mano: Transform3D
 var _en_corte := false
 
+# Huesos y poses del brazo que sostiene el ingrediente.
+var _clavicula_izq := -1
+var _mano_izq := -1
+var _antebrazo_izq := -1
+var _clavicula_izq_base: Transform3D
+var _mano_izq_base: Transform3D
+var _codo_izq_base: Vector3
+var _pose_apoyo_izq: Transform3D
+var _pose_clavicula_apoyo: Transform3D
+var _peso_apoyo_izq := 0.0
+var _dedos_izq: Array[int] = []
+var _dedos_izq_base: Array[Quaternion] = []
+var _ejes_dedos_izq: Array[Vector3] = []
+var _base_palma_izq := Basis.IDENTITY
+var _palma_izq_calibrada := false
+
 
 func _ready() -> void:
 	# La tabla busca al jugador aquí para sincronizar la mano con el cuchillo.
 	add_to_group("player")
 	_pintar_brazos()
 	_pose_quieta()
+	_preparar_apoyo_izquierdo()
 	_preparar_malla_corte()
 	_reposo_brazos = brazos.transform
 	_pos_brazos = brazos.position
@@ -70,6 +87,7 @@ func _agarrar() -> void:
 	var hit := get_world_3d().direct_space_state.intersect_ray(q)
 	if hit.is_empty():
 		return
+
 	# La mano se estira hacia lo que tocó y los dedos se cierran.
 	var destino := (camara.to_local(hit.position) - Vector3(0.0, -0.26, -0.5)) * 0.2
 	_animar(1.0, _pos_brazos + destino.limit_length(0.06))
@@ -84,6 +102,7 @@ func _soltar() -> void:
 func actualizar_agarre_corte(mango: Transform3D, centro_tabla: Vector3) -> void:
 	if _mano < 0 or _clavicula < 0:
 		return
+
 	if not _en_corte:
 		if _tween:
 			_tween.kill()
@@ -103,7 +122,6 @@ func actualizar_agarre_corte(mango: Transform3D, centro_tabla: Vector3) -> void:
 
 	# Pasa el mango al espacio del esqueleto para alinear el puño.
 	var mango_local := _esqueleto.global_transform.affine_inverse() * mango
-	# El rig tiene escala. Conservamos la escala original del hueso.
 	mango_local.basis = mango_local.basis.orthonormalized()
 	_pose_corte_mano = mango_local * _mango_en_mano.affine_inverse()
 	_pose_corte_mano.basis = _pose_corte_mano.basis.scaled_local(
@@ -161,7 +179,10 @@ func _preparar_malla_corte() -> void:
 		if not nombre.is_empty():
 			hueso = _esqueleto.find_bone(nombre)
 		while hueso >= 0:
-			if hueso == antebrazo or hueso == _mano:
+			if (
+				hueso == antebrazo or hueso == _mano
+				or hueso == _antebrazo_izq or hueso == _mano_izq
+			):
 				binds_visibles[i] = 1
 				break
 			hueso = _esqueleto.get_bone_parent(hueso)
@@ -233,7 +254,11 @@ func finalizar_agarre_corte() -> void:
 
 func _volver_mano(peso: float) -> void:
 	_colocar_brazo_derecho(_pose_corte_mano.interpolate_with(_pose_mano, peso), 1.0 - peso)
+	if _peso_apoyo_izq > 0.0:
+		_posar_apoyo_izquierdo(_peso_apoyo_izq * (1.0 - peso))
+
 	if peso >= 1.0:
+		_peso_apoyo_izq = 0.0
 		_restaurar_malla_brazos()
 
 
@@ -245,6 +270,11 @@ func _restaurar_malla_brazos() -> void:
 func _animar(agarre: float, pos: Vector3) -> void:
 	if _tween:
 		_tween.kill()
+
+	if _peso_apoyo_izq > 0.0:
+		_posar_apoyo_izquierdo(0.0)
+		_peso_apoyo_izq = 0.0
+
 	_restaurar_malla_brazos()
 	brazos.basis = _reposo_brazos.basis
 	if _mano >= 0 and _clavicula >= 0:
@@ -269,6 +299,7 @@ func _pose_quieta() -> void:
 		ap.seek(0.0, true)
 		ap.stop()
 		ap.active = false
+
 	var esqueletos := brazos.find_children("*", "Skeleton3D", true, false)
 	if esqueletos.is_empty():
 		return
@@ -294,3 +325,95 @@ func _pintar_brazos() -> void:
 	mat.emission_energy_multiplier = 0.45
 	for m in brazos.find_children("*", "MeshInstance3D", true, false):
 		(m as MeshInstance3D).material_override = mat
+
+
+func _preparar_apoyo_izquierdo() -> void:
+	if _esqueleto == null:
+		return
+
+	_clavicula_izq = _esqueleto.find_bone("clavicle.L")
+	_mano_izq = _esqueleto.find_bone("hand.L.control")
+	_antebrazo_izq = _esqueleto.find_bone("forearm.L")
+	if _clavicula_izq < 0 or _mano_izq < 0 or _antebrazo_izq < 0:
+		return
+
+	_clavicula_izq_base = _esqueleto.get_bone_global_pose(_clavicula_izq)
+	_mano_izq_base = _esqueleto.get_bone_global_pose(_mano_izq)
+	_codo_izq_base = _esqueleto.get_bone_global_pose(_antebrazo_izq).origin
+
+	var indice := _esqueleto.find_bone("f_index.01.L")
+	var menique := _esqueleto.find_bone("f_pinky.01.L")
+	var medio := _esqueleto.find_bone("f_middle.01.L")
+	if indice < 0 or menique < 0 or medio < 0:
+		return
+
+	# Los nudillos definen el ancho y la dirección de la palma.
+	var hacia_dedos := (
+		_esqueleto.get_bone_global_pose(medio).origin - _mano_izq_base.origin
+	).normalized()
+	var ancho := (
+		_esqueleto.get_bone_global_pose(indice).origin
+		- _esqueleto.get_bone_global_pose(menique).origin
+	).slide(hacia_dedos).normalized()
+	_base_palma_izq = Basis(ancho, hacia_dedos.cross(ancho), hacia_dedos)
+	_palma_izq_calibrada = true
+
+	for i in _esqueleto.get_bone_count():
+		var nombre := _esqueleto.get_bone_name(i)
+		if nombre.begins_with("f_") and nombre.ends_with(".L"):
+			var base_hueso := _esqueleto.get_bone_global_pose(i).basis
+			_dedos_izq.append(i)
+			_dedos_izq_base.append(_esqueleto.get_bone_pose_rotation(i))
+			_ejes_dedos_izq.append((base_hueso.inverse() * ancho).normalized())
+
+
+func actualizar_apoyo_izquierdo(
+	muneca_global: Vector3,
+	direccion_codo_global: Vector3,
+	progreso_corte: float,
+	base_tabla: Basis
+) -> void:
+	if not _en_corte or _clavicula_izq < 0 or _mano_izq < 0 or _antebrazo_izq < 0:
+		return
+
+	var muneca := _esqueleto.to_local(muneca_global)
+	var mundo_a_rig := _esqueleto.global_basis.inverse()
+	var codo_base := (_codo_izq_base - _mano_izq_base.origin).normalized()
+	var codo_destino := (mundo_a_rig * direccion_codo_global).normalized()
+	var giro := Basis(Quaternion(codo_base, codo_destino))
+	var ajuste := Transform3D(giro, muneca - giro * _mano_izq_base.origin)
+
+	_pose_clavicula_apoyo = ajuste * _clavicula_izq_base
+	_pose_apoyo_izq = ajuste * _mano_izq_base
+
+	if _palma_izq_calibrada:
+		# La palma va hacia abajo y los dedos apuntan en diagonal a la verdura.
+		var hacia_dedos := (
+			mundo_a_rig * (base_tabla * Vector3(0.70, 0.0, -0.72))
+		).normalized()
+		var arriba := (mundo_a_rig * base_tabla.y).normalized()
+		var ancho := hacia_dedos.cross(arriba).normalized()
+		var base_destino := Basis(ancho, hacia_dedos.cross(ancho), hacia_dedos)
+		_pose_apoyo_izq.basis = (
+			base_destino * _base_palma_izq.inverse() * _mano_izq_base.basis
+		)
+
+	_peso_apoyo_izq = smoothstep(0.0, 0.16, progreso_corte)
+	_posar_apoyo_izquierdo(_peso_apoyo_izq)
+
+
+func _posar_apoyo_izquierdo(peso: float) -> void:
+	_esqueleto.set_bone_global_pose(
+		_clavicula_izq,
+		_clavicula_izq_base.interpolate_with(_pose_clavicula_apoyo, peso)
+	)
+	_esqueleto.set_bone_global_pose(
+		_mano_izq,
+		_mano_izq_base.interpolate_with(_pose_apoyo_izq, peso)
+	)
+
+	for i in _dedos_izq.size():
+		var curva := Quaternion(_ejes_dedos_izq[i], -0.24 * peso)
+		_esqueleto.set_bone_pose_rotation(
+			_dedos_izq[i], _dedos_izq_base[i] * curva
+		)

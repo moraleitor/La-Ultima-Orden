@@ -35,6 +35,12 @@ const RACHA_PARA_RECUPERAR := 4
 const APAGON_SEGUNDOS := 3.0
 const AMANECER_SEGUNDOS := 5.0
 
+# Reloj del turno: de 8 PM a 6 AM en unos 5 minutos y medio reales.
+# El último cliente llega a los 270 s y tiene 45 s de plazo, así que a los 320 s ya no queda nadie.
+const TURNO_SEGUNDOS := 320.0
+const HORA_INICIO := 20           # 8 PM
+const HORAS_TURNO := 10           # hasta las 6 AM
+
 # Luz (sección 9). Índice = nivel de tensión 0, 1, 2.
 const LUZ_POR_NIVEL := [1.0, 0.75, 0.5]
 const LUZ_CAIDA_SEGUNDOS := 0.2

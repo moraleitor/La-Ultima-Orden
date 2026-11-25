@@ -10,6 +10,10 @@ const ALTURA_CUCHILLO := 0.215
 const RECORRIDO_CORTE := 0.13
 const FRECUENCIA_CORTE := 2.5
 
+# Punto de la muñeca y dirección del codo en los ejes locales de la tabla.
+const APOYO_IZQUIERDO := Vector3(-0.165, 0.045, 0.085)
+const DIRECCION_CODO_IZQUIERDO := Vector3(-0.55, -0.10, 1.0)
+
 var ingrediente: Ingrediente = null
 var progreso := 0.0
 var bloqueada := false
@@ -142,6 +146,16 @@ func _mover_cuchillo(golpe: float) -> void:
 		mango.basis *= giro_filo.inverse()
 		mango.origin = cuchillo.to_global(MANGO_LOCAL)
 		jugador.actualizar_agarre_corte(mango, global_position)
+
+		# El rig ya está orientado hacia la tabla cuando se coloca la izquierda.
+		if jugador.has_method("actualizar_apoyo_izquierdo"):
+			var muneca_global := to_global(ingrediente.position + APOYO_IZQUIERDO)
+			jugador.actualizar_apoyo_izquierdo(
+				muneca_global,
+				global_basis * DIRECCION_CODO_IZQUIERDO,
+				progreso,
+				global_basis.orthonormalized()
+			)
 
 
 func _detener_corte() -> void:

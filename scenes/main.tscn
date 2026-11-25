@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/reloj_hud.tscn" id="reloj1"]
 [ext_resource type="PackedScene" path="res://scenes/ui/victoria_hud.tscn" id="victoria1"]
 [ext_resource type="PackedScene" path="res://scenes/ui/vidas_hud.tscn" id="vidas1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/reloj_hud.tscn" id="reloj1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/victoria_hud.tscn" id="victoria1"]
 
 [node name="Main" type="Node3D" unique_id=731949950]
 script = ExtResource("e1")
@@ -54,6 +56,10 @@ script = ExtResource("7_o6xl0")
 [node name="RelojHud" parent="." unique_id=1303923209 instance=ExtResource("reloj1")]
 
 [node name="VictoriaHud" parent="." unique_id=1700696514 instance=ExtResource("victoria1")]
+
+[node name="RelojHud" parent="." instance=ExtResource("reloj1")]
+
+[node name="VictoriaHud" parent="." instance=ExtResource("victoria1")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=108869114]
 

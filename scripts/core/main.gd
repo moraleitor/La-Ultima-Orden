@@ -1,6 +1,12 @@
 extends Node3D
 ## Arma los sistemas del núcleo y los conecta con la escena.
 ## Danna: tu escena va como hija de este nodo (o instanciada aquí).
+@onready var ambiente: AudioStreamPlayer = $Ambiente
+
+# Detiene el sonido cuando sea necesario.
+func detener_llanto() -> void:
+	if ambiente.playing:
+		ambiente.stop()
 
 func _ready() -> void:
 	var tension := TensionSystem.new()

@@ -2,7 +2,7 @@
 class_name Tabla
 extends Node3D
 
-# Gabriela: corte de ingredientes durante 2 segundos.
+#corte de ingredientes durante 2 segundos.
 
 # Punto de agarre en el modelo del cuchillo y recorrido de la hoja.
 const MANGO_LOCAL := Vector3(0.23, 0.02, -0.027)
@@ -30,7 +30,7 @@ var _pose_zanahoria: Transform3D
 @onready var controlador: DragController = (
 	get_parent().get_node("DragController") as DragController
 )
-
+@onready var sonido_corte: AudioStreamPlayer = $SonidoCorte
 
 func _ready() -> void:
 	Events.entradas_bloqueadas.connect(_cambiar_bloqueo)
@@ -94,9 +94,18 @@ func _physics_process(delta: float) -> void:
 		# La mira solo importa al iniciar, así se puede mirar alrededor al cortar.
 		if controlador.estacion_apuntada() != self:
 			return
+
 		_corte_en_curso = true
+
 		if _tween_cuchillo:
 			_tween_cuchillo.kill()
+
+		# Reproducir el sonido al comenzar a cortar.
+		if sonido_corte.stream != null:
+			sonido_corte.stop()
+			sonido_corte.play(2.9)
+			print("[AUDIO CORTE] Sonido iniciado.")
+
 
 	# Al completar el cronómetro el puño conserva el mango hasta soltar.
 	if ingrediente.estado != Ingrediente.Estado.CRUDO:
@@ -110,7 +119,11 @@ func _physics_process(delta: float) -> void:
 		_emitir_particulas_ingrediente()
 	_golpe_anterior = golpe
 
+
 	if progreso >= Config.CORTE_SEGUNDOS:
+		# Detener el audio cuando finalizan los 2 segundos.
+		_detener_sonido()
+
 		ingrediente.set_estado(
 			Ingrediente.Estado.CORTADO
 		)
@@ -158,20 +171,43 @@ func _mover_cuchillo(golpe: float) -> void:
 			)
 
 
+
+func _detener_sonido() -> void:
+	# Detener el sonido si todavía se está reproduciendo.
+	if sonido_corte != null and sonido_corte.playing:
+		sonido_corte.stop()
+
+
 func _detener_corte() -> void:
+	# Siempre detener el audio al cancelar el corte.
+	_detener_sonido()
+
 	if not _corte_en_curso:
 		return
+
 	_corte_en_curso = false
 	_golpe_anterior = 0.0
+
 	# Si suelta antes de terminar, debe comenzar nuevamente.
 	if is_instance_valid(ingrediente) and ingrediente.estado == Ingrediente.Estado.CRUDO:
 		progreso = 0.0
 
+	# Devolver el cuchillo suavemente a su posición inicial.
 	if is_instance_valid(cuchillo):
-		_tween_cuchillo = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		_tween_cuchillo.tween_property(cuchillo, "transform", _cuchillo_reposo, 0.18)
+		_tween_cuchillo = create_tween().set_trans(
+			Tween.TRANS_SINE
+		).set_ease(Tween.EASE_OUT)
 
+		_tween_cuchillo.tween_property(
+			cuchillo,
+			"transform",
+			_cuchillo_reposo,
+			0.18
+		)
+
+	# Restaurar las manos del jugador.
 	var jugador := get_tree().get_first_node_in_group("player")
+
 	if jugador and jugador.has_method("finalizar_agarre_corte"):
 		jugador.finalizar_agarre_corte()
 

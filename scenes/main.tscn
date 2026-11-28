@@ -4,15 +4,22 @@
 [ext_resource type="Script" uid="uid://gw0isn26jbcl" path="res://scripts/core/disparador.gd" id="8_85g3d"]
 [ext_resource type="Script" uid="uid://dn7o6j5t6p6qi" path="res://scripts/visual/vista_papel_ampliado.gd" id="8_choun"]
 [ext_resource type="Script" uid="uid://cf5ega1jtv24c" path="res://scripts/core/sistema_eventos.gd" id="9_choun"]
+[ext_resource type="AudioStream" uid="uid://bkrebfofjxb7m" path="res://Audios/audios backround/Crying_moaning_ambience_2.mp3" id="14_a8y0u"]
+[ext_resource type="AudioStream" uid="uid://245aiwm2m3mm" path="res://Audios/game over/Piano_stinger_dissonent_2.mp3" id="15_jbj1t"]
+[ext_resource type="Script" uid="uid://cml7do3iok4kq" path="res://scenes/sonido_game_over.gd" id="16_muem4"]
+[ext_resource type="AudioStream" uid="uid://b62sbqhv32d58" path="res://Audios/cliente_aparece_en_escena/Ghost_moan_2.mp3" id="17_dp3eg"]
+[ext_resource type="Script" uid="uid://bxjvwpqnebgdp" path="res://scenes/sonido_cliente.gd" id="18_0ld40"]
+[ext_resource type="AudioStream" uid="uid://b4ay3c505rdx1" path="res://Audios/insatisfacción_cliente/AudioMounstro_serDeOtroMundo2(3).mp3" id="19_0ld40"]
+[ext_resource type="Script" uid="uid://c7qbl2imh0ww0" path="res://scenes/sonido_insatisfaccion.gd" id="20_gqmmt"]
 [ext_resource type="Script" uid="uid://biww58kaeum8x" path="res://scripts/core/main.gd" id="e1"]
-[ext_resource type="PackedScene" path="res://scenes/mapa/mapa.tscn" id="e2"]
+[ext_resource type="PackedScene" uid="uid://cyqy51ns77f1" path="res://scenes/mapa/mapa.tscn" id="e2"]
 [ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="e3"]
 [ext_resource type="PackedScene" path="res://scenes/cliente/cliente.tscn" id="e4"]
 [ext_resource type="PackedScene" path="res://scenes/screamer/screamer.tscn" id="e5"]
 [ext_resource type="PackedScene" path="res://scenes/zonas/luces_clientes.tscn" id="e6"]
-[ext_resource type="PackedScene" path="res://scenes/ui/vidas_hud.tscn" id="vidas1"]
 [ext_resource type="PackedScene" path="res://scenes/ui/reloj_hud.tscn" id="reloj1"]
 [ext_resource type="PackedScene" path="res://scenes/ui/victoria_hud.tscn" id="victoria1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/vidas_hud.tscn" id="vidas1"]
 
 [node name="Main" type="Node3D" unique_id=731949950]
 script = ExtResource("e1")
@@ -48,11 +55,11 @@ shadow_enabled = true
 omni_range = 6.0
 script = ExtResource("7_o6xl0")
 
-[node name="VidasHud" parent="." instance=ExtResource("vidas1")]
+[node name="VidasHud" parent="." unique_id=512375081 instance=ExtResource("vidas1")]
 
-[node name="RelojHud" parent="." instance=ExtResource("reloj1")]
+[node name="RelojHud" parent="." unique_id=1173885903 instance=ExtResource("reloj1")]
 
-[node name="VictoriaHud" parent="." instance=ExtResource("victoria1")]
+[node name="VictoriaHud" parent="." unique_id=211625730 instance=ExtResource("victoria1")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=108869114]
 
@@ -167,3 +174,24 @@ tinte_pantalla = NodePath("../UI/TinteAlerta")
 flash_pantalla = NodePath("../UI/FlashRojo")
 apagon_pantalla = NodePath("../UI/PantallaApagon")
 mensaje_apagon = NodePath("../UI/GameOver")
+
+[node name="Ambiente" type="AudioStreamPlayer" parent="." unique_id=1123235194]
+stream = ExtResource("14_a8y0u")
+volume_db = -6.0
+autoplay = true
+parameters/looping = true
+
+[node name="SonidoGameOver" type="AudioStreamPlayer" parent="." unique_id=470981176]
+stream = ExtResource("15_jbj1t")
+volume_db = 2.0
+script = ExtResource("16_muem4")
+retraso_segundos = 1.5
+
+[node name="SonidoCliente" type="AudioStreamPlayer" parent="." unique_id=2130316956]
+stream = ExtResource("17_dp3eg")
+volume_db = 6.0
+script = ExtResource("18_0ld40")
+
+[node name="SonidoInsatisfaccion" type="AudioStreamPlayer" parent="." unique_id=24679787]
+stream = ExtResource("19_0ld40")
+script = ExtResource("20_gqmmt")

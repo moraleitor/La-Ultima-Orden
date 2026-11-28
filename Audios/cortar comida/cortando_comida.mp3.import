@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crjn24kx0nfa2"
+path="res://.godot/imported/cortando_comida.mp3-913c60e3fb46c1bd11e6932f8581fcbc.mp3str"
+
+[deps]
+
+source_file="res://Audios/cortar comida/cortando_comida.mp3"
+dest_files=["res://.godot/imported/cortando_comida.mp3-913c60e3fb46c1bd11e6932f8581fcbc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

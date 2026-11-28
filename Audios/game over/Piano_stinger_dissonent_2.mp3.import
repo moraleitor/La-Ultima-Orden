@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://245aiwm2m3mm"
+path="res://.godot/imported/Piano_stinger_dissonent_2.mp3-dbfde6e6cbb3cdd404f5f2e1bb443f6e.mp3str"
+
+[deps]
+
+source_file="res://Audios/game over/Piano_stinger_dissonent_2.mp3"
+dest_files=["res://.godot/imported/Piano_stinger_dissonent_2.mp3-dbfde6e6cbb3cdd404f5f2e1bb443f6e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
